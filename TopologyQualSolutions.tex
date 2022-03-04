@@ -81,13 +81,94 @@
 
 \begin{document}
 
-\section{List of Problems Included}
+\section{Directory}
 
 \begin{itemize}
-\item Fall 2016: 1 (\ref{prob:F161}), 4 (\ref{prob:F164})
+\item \textbf{Fall 2020}: 1 (Problem \ref{prob:F20.1}), 
+				2 (Problem \ref{prob:F20.2}), 
+				3 (Problem \ref{prob:F20.3}), 
+				4 (Problem \ref{prob:F20.4}),  
+				5 (Problem \ref{prob:F20.5}), 
+				6 (Problem \ref{prob:F20.6}), 
+				7 (Problem \ref{prob:F20.7})
+\item Fall 2016: 1 (Problem \ref{prob:F161}), 4 (Problem \ref{prob:F164})
 \end{itemize}
 
-\section{Basic Point Set Properties}
+\section{Point Set Properties}
+
+	\begin{prob}{F20}{F20.1}
+	\begin{enumerate}[(a)]
+	\item Give an example of two topological spaces $X,Y$ and a continuous bijection $f: X \to Y$ that is not a homeomorphism.
+	\item Show that if $X$ is compact and $Y$ is Hausdorff, then every continuous bijection between the spaces is a homeomorphism.
+	\end{enumerate}
+	\end{prob}
+	
+	\begin{solution}
+	Let $X = [0,1]$ with the standard topology and $Y = [0,1]$ with the trivial topology. Let $f: X \to Y$ be the identity map. Clearly $f$ is bijective. The only open sets in $Y$ are $\varnothing $ and $[0,1]$. Since both $f\inv(\varnothing) = \varnothing$ and $f\inv([0,1]) = [0,1]$ are open in $X$, $f$ is continuous. However, $f$ is not a homeomorphism since $(0,1)$ is open in $X$ but $f(0,1) = (0,1)$ is not open in $Y$.
+	\end{solution}
+	
+	\begin{proof}
+	Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff space. To show that $f$ is a homeomorphism, it remains to check that $f$ is an open mapping. This is equivalent to proving that $f$ maps closed sets to closed sets. Let $A \sq X$ be a closed set. Since $X$ is compact, $A$ is compact in $X$. Then, $f(A) \sq Y$ must be compact since $f$ is continuous. In a Hausdorff space, any compact set is closed and thus $f(A)$ is closed in $Y$, as desired.
+	\end{proof}
+
+\section{Homeomorphic Spaces}
+
+	\begin{prob}{S20}{}
+	Prove that $S^2$ is homeomorphic to a quotient space of $S^1 \times [0,1]$.
+	\end{prob}
+	
+	\begin{proof}
+	Define an equivalence relation $\sim$ on $S^1 \times [0,1]$ such that
+		\[(\theta,0) \sim (\theta', 0) \]
+	and
+		\[(\theta,1) \sim (\theta', 1) \]
+	for any $\theta,\theta' \in S^1$. Then $S^1 \times [0,1]/ \sim$ is an annulus with each of the boundary disks crushed to a point. Note that
+		\[S^2 = \{(\theta, \phi): 0 \leq \theta \leq 2\pi, 0 \leq \varphi \leq \pi \}. \]
+	where all points of the form $(\theta, 0)$ correspond to the north pole of $S^2$ and all points of the form $(\theta, \pi)$ correspond to the south pole of $S^2$. Every other point in $S^2$ has a unique description in this coordinate system.\\
+	
+	Define $f: S^1 \times [0,1]/ \sim \to S^2$ by $f(\theta,t) = (\theta, \pi t)$. Observe that $f$ is well-defined as all points in $S^1 \times \{0\}$ are mapped to the north pole and all points in $S^1 \times \{1\}$ are mapped to the south pole. As both component functions of $f$ are continuous, $f$ is continuous. Given any $(\theta, \varphi) \in S^2$, $f(\theta, \varphi/\pi) = (\theta, \varphi)$, proving that $f$ is surjective. To see that $f$ is injective, suppose that $f(\theta,t) = f(\theta', t')$. Then, $(\theta,\pi t) = (\theta',\pi t')$. This means that $t = t'$. If $t = 0$, then $(\theta,0) \sim (\theta' 0)$. If $t = 1$, $(\theta,1) \sim (\theta' 1)$. If $t,t' \not\in \{0,\pi\}$ then $\theta = \theta'$. In any case, $(\theta,t) = (\theta, t') \in S^1 \times [0,1] /\sim$. As $f$ is a continuous bijection from a compact space to a Hausdorff space, $f$ is a homeomorphism.
+	\end{proof}
+	
+\section{Metric Spaces}
+
+	\begin{prob}{S20}{}
+	Let $(X,d)$ be a metric space and fix a point $x_0 \in X$. Let $\rho$ be a new metric given by $\rho(x,y) = d(x,x_0) + d(y,x_0)$ whenever $x \neq y$ and $\rho(x,y) = 0$ if $x = y$. Verify that $\rho$ is a metric and $(X,\rho)$ is complete.
+	\end{prob}
+	
+	\begin{proof}
+	By construction, $\rho(x,y) \geq 0$ for each $x,y \in X$. Suppose $\rho(x,y) = 0$ but $x \neq y$. Then, $0 = \rho(x,y) = d(x,x_0) + d(y,y_0)$. Since at most one of $x$ and $y$ can be $x_0$, $d(x,x_0) + d(y,y_0) > 0$. Therefore $\rho(x,y) = 0$ if and only if $x = y$. Suppose now that $x,y, z \in X$. Then,
+		\[\rho(x,y) + \rho(y,z) = d(x,x_0) + d(y,x_0) + d(y,x_0) + d(z,x_0) = \rho(x,z) + 2 d(y,x_0) \geq \rho(x,z) \]
+	proving that $\rho$ is a metric.\\
+	
+	To see that $(X, \rho)$ is a complete metric space, let $(x_n)$ be a Cauchy sequence in $(X, \rho)$. Let $\epsilon > 0$ and choose $N \in \N$ sufficiently large such that $\rho(x_N, x_n) < \epsilon$ whenever $n \geq N$. This means that whenever $n \geq N$,
+		\[ d(x_n,x_0) \leq d(x_N, x_0) + d(x_n, x_0) = \rho(x_N, x_m) < \epsilon. \]
+	Therefore, $x_n \to x_0$ in $(X,d)$. Equivalently, as $n \to \infty$, $d(x_n,x_0) \to 0$. Then,
+		\[\rho(x_n, x_0) = d(x_n, x_0) + d(x_0, x_0) = d(x_n, x_0) \]
+	meaning that as $n \to \infty$, $\rho(x_n,x_0) \to 0$. That is, $x_n \to x_0$ in $(X,\rho)$.
+	\end{proof}
+
+
+\section{Fundamental Group}
+
+	\begin{prob}{F20}{F20.4}
+	Prove that no pair of the following spaces are homeomorphic to one another:
+		\[ S^0, \; S^1 \times \R, \; S^1 \times S^2, \; \R \times S^2, \; S^2 \]
+	\end{prob}
+	
+	\begin{proof}
+	First note that $S^0$ is a discrete space while the remaining spaces are not. Therefore, $S^0$ cannot be homeomorphic to any of the other spaces. Because $S^1 \times \R$ and $\R \times S^2$ are unbounded and therefore not compact, neither of these spaces is homeomorphic to either of compact spaces, $S^1 \times S^2$ or $S^2$. As $S^1 \times \R$ is the product of path-connected spaces, $\pi_1(S^1 \times \R) \cong \pi_1(S^1) \times \pi_1(\R) \cong \Z$. Similarly, $\pi_1(\R \times S^2) \cong \pi_1(\R) \times \pi_1(S^2) \cong 0$. As the fundamental group is preserved under homeomorphisms, $S^1 \times \R$ and $\R \times S^2$ are not homeomorphic. Similarly, $S^1 \times S^2$ and $S^2$ are not homeomorphic since $\pi_1(S^1 \times S^2) \cong \Z$ and $\pi_1(S^2) = 0$.
+	\end{proof}
+	
+\section{Unfinished}
+
+	\begin{prob}{F20}{F20.7}
+	A subset $E$ of a topological space $X$ is called a $G_\delta$ if there is a sequence $U_1, U_2, \ldots$ of open subsets of $X$ such that $E = \cap_{j}U_j$.
+	\begin{enumerate}[(i)]
+	\item Show that if $f: X \to \R$ is a continuous function from $X$ to the real line, then $\{x: f(x)=0\}$ is closed and is a $G_\delta$.
+	\item Show that in a metric space, every closed set is a $G_\delta$.
+	\item Prove  that $(ii)$ fails in an arbitrary topological space.
+	\end{enumerate}
+	\end{prob}
 
 	\begin{prob}{F16}{F161}
 	Give a proof or counter example for the following:
@@ -112,9 +193,6 @@
 	\begin{prob}{F16}{}
 	Give an example of a space that is connected but not path-connected. Prove the example works.
 	\end{prob}
-	
-\section{Metric Spaces}
-
 	\begin{prob}{F16}{}
 	Prove that a metric space is compact if and only if it is sequentially compact.
 	\end{prob}
@@ -127,7 +205,7 @@
 	Suppose that $X$ is a metric space such that every sequence in $X$ has a Cauchy subsequence. Prove that $X$ can be covered by finitely many balls of radius 1.
 	\end{prob}
 	
-	\begin{prob}{F20}{}
+	\begin{prob}{F20}{F20.3}
 	Let $(X,d)$ be a metric space and let $f: X \to X$ be a continuous function without any fixed points.
 	\begin{enumerate}[(i)]
 	\item If $X$ is compact, show that there exists $\epsilon > 0$ so that $d(x,f(x)) > \epsilon$ for all $x \in X$.
@@ -135,8 +213,6 @@
 	\end{enumerate}
 	\end{prob}
 	
-\section{Unsorted}
-
 	\begin{prob}{F16}{}
 	For each of the following either give a proof or provide a justified counterexample.
 	\begin{enumerate}[(a)]
@@ -144,86 +220,32 @@
 	\item Suppose that $B$ and $C$ are subspaces of a topological space $A$. If $B$ is homeomorphic to $C$, does it follow that $A/B$ is homeomorphic to $A/C$?
 	\end{enumerate}
 	\end{prob}
-	
-	\begin{prob}{S20}{}
-	Let $(X,d)$ be a metric space and fix a point $x_0 \in X$. Let $\rho$ be a new metric given by $\rho(x,y) = d(x,x_0) + d(y,x_0)$ whenever $x \neq y$ and $\rho(x,y) = 0$ if $x = y$. Verify that $\rho$ is a metric and $(X,\rho)$ is complete.
-	\end{prob}
-	
-	\begin{proof}
-	By construction, $\rho(x,y) \geq 0$ for each $x,y \in X$. Suppose $\rho(x,y) = 0$ but $x \neq y$. Then, $0 = \rho(x,y) = d(x,x_0) + d(y,y_0)$. Since at most one of $x$ and $y$ can be $x_0$, $d(x,x_0) + d(y,y_0) > 0$. Therefore $\rho(x,y) = 0$ if and only if $x = y$. Suppose now that $x,y, z \in X$. Then,
-		\[\rho(x,y) + \rho(y,z) = d(x,x_0) + d(y,x_0) + d(y,x_0) + d(z,x_0) = \rho(x,z) + 2 d(y,x_0) \geq \rho(x,z) \]
-	proving that $\rho$ is a metric.\\
-	
-	To see that $(X, \rho)$ is a complete metric space, let $(x_n)$ be a Cauchy sequence in $(X, \rho)$. Let $\epsilon > 0$ and choose $N \in \N$ sufficiently large such that $\rho(x_N, x_n) < \epsilon$ whenever $n \geq N$. This means that whenever $n \geq N$,
-		\[ d(x_n,x_0) \leq d(x_N, x_0) + d(x_n, x_0) = \rho(x_N, x_m) < \epsilon. \]
-	Therefore, $x_n \to x_0$ in $(X,d)$. Equivalently, as $n \to \infty$, $d(x_n,x_0) \to 0$. Then,
-		\[\rho(x_n, x_0) = d(x_n, x_0) + d(x_0, x_0) = d(x_n, x_0) \]
-	meaning that as $n \to \infty$, $\rho(x_n,x_0) \to 0$. That is, $x_n \to x_0$ in $(X,\rho)$.
-	\end{proof}
-	
+		
 	\begin{prob}{F16}{}
 	State the contraction mapping theorem. Prove there is a unique continuous function $f: [0,1] \to [0,1]$ that satisfies
 		\[f(x) = \frac{f(\sin x) + \cos x}{2} \]
 	for all $x \in [0,1]$.
 	\end{prob}
 	
-	\begin{prob}{S20}{}
-	Prove that $S^2$ is homeomorphic to a quotient space of $S^1 \times [0,1]$.
-	\end{prob}
-	
-	\begin{proof}
-	Define an equivalence relation $\sim$ on $S^1 \times [0,1]$ such that
-		\[(\theta,0) \sim (\theta', 0) \]
-	and
-		\[(\theta,1) \sim (\theta', 1) \]
-	for any $\theta,\theta' \in S^1$. Then $S^1 \times [0,1]/ \sim$ is an annulus with each of the boundary disks crushed to a point. Note that
-		\[S^2 = \{(\theta, \phi): 0 \leq \theta \leq 2\pi, 0 \leq \varphi \leq \pi \}. \]
-	where all points of the form $(\theta, 0)$ correspond to the north pole of $S^2$ and all points of the form $(\theta, \pi)$ correspond to the south pole of $S^2$. Every other point in $S^2$ has a unique description in this coordinate system.\\
-	
-	Define $f: S^1 \times [0,1]/ \sim \to S^2$ by $f(\theta,t) = (\theta, \pi t)$. Observe that $f$ is well-defined as all points in $S^1 \times \{0\}$ are mapped to the north pole and all points in $S^1 \times \{1\}$ are mapped to the south pole. As both component functions of $f$ are continuous, $f$ is continuous. Given any $(\theta, \varphi) \in S^2$, $f(\theta, \varphi/\pi) = (\theta, \varphi)$, proving that $f$ is surjective. To see that $f$ is injective, suppose that $f(\theta,t) = f(\theta', t')$. Then, $(\theta,\pi t) = (\theta',\pi t')$. This means that $t = t'$. If $t = 0$, then $(\theta,0) \sim (\theta' 0)$. If $t = 1$, $(\theta,1) \sim (\theta' 1)$. If $t,t' \not\in \{0,\pi\}$ then $\theta = \theta'$. In any case, $(\theta,t) = (\theta, t') \in S^1 \times [0,1] /\sim$. As $f$ is a continuous bijection from a compact space to a Hausdorff space, $f$ is a homeomorphism.
-	\end{proof}
 	
 	\begin{prob}{S20}{}
 	A topological space is \emph{separable} if it has a countable dense subset. Prove that the product of countable collection of separable topological spaces is separable.
 	\end{prob}
 	
-	\begin{prob}{F20}{}
+	\begin{prob}{F20}{F20.2}
 	Let $X$ be a topological space. Show that the intersection of any two dense open sets in $X$ is also dense. Give an example that shows that this may fail if the two sets are not required to be open.
 	\end{prob}
 	
-	\begin{prob}{F20}{F201}
-	\begin{enumerate}[(a)]
-	\item Give an example of two topological spaces $X,Y$ and a continuous bijection $f: X \to Y$ that is not a homeomorphism.
-	\item Show that if $X$ is compact and $Y$ is Hausdorff, then every continuous bijection between the spaces is a homeomorphism.
-	\end{enumerate}
-	\end{prob}
-	
-	\begin{solution}
-	Let $X = [0,1]$ with the standard topology and $Y = [0,1]$ with the trivial topology. Let $f: X \to Y$ be the identity map. Clearly $f$ is bijective. The only open sets in $Y$ are $\varnothing $ and $[0,1]$. Since both $f\inv(\varnothing) = \varnothing$ and $f\inv([0,1]) = [0,1]$ are open in $X$, $f$ is continuous. However, $f$ is not a homeomorphism since $(0,1)$ is open in $X$ but $f(0,1) = (0,1)$ is not open in $Y$.
-	\end{solution}
-	
-	\begin{proof}
-	Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff space. To show that $f$ is a homeomorphism, it remains to check that $f$ is an open mapping. This is equivalent to proving that $f$ maps closed sets to closed sets. Let $A \sq X$ be a closed set. Since $X$ is compact, $A$ is compact in $X$. Then, $f(A) \sq Y$ must be compact since $f$ is continuous. In a Hausdorff space, any compact set is closed and thus $f(A)$ is closed in $Y$, as desired.
-	\end{proof}
-	
-	\begin{prob}{F20}{}
-	Prove that no pair of the following spaces are homeomorphic to one another:
-		\[ S^0, \; S^1 \times \R, \; S^1 \times S^2, \; \R \times S^2, \; S^2 \]
-	\end{prob}
-	
-	\begin{proof}
-	First note that $S^0$ is a discrete space while the remaining spaces are not. Therefore, $S^0$ cannot be homeomorphic to any of the other spaces. Because $S^1 \times \R$ and $\R \times S^2$ are unbounded and therefore not compact, neither of these spaces is homeomorphic to either of compact spaces, $S^1 \times S^2$ or $S^2$. As $S^1 \times \R$ is the product of path-connected spaces, $\pi_1(S^1 \times \R) \cong \pi_1(S^1) \times \pi_1(\R) \cong \Z$. Similarly, $\pi_1(\R \times S^2) \cong \pi_1(\R) \times \pi_1(S^2) \cong 0$. As the fundamental group is preserved under homeomorphisms, $S^1 \times \R$ and $\R \times S^2$ are not homeomorphic. Similarly, $S^1 \times S^2$ and $S^2$ are not homeomorphic since $\pi_1(S^1 \times S^2) \cong \Z$ and $\pi_1(S^2) = 0$.
-	\end{proof}
 	
 	
-	\begin{prob}{F20}{}
+	\begin{prob}{F20}{F20.5}
 	\begin{enumerate}[(i)]
 	\item Suppose that $X$ is a topological space with the property that every two point space lies in a connected subspace of $X$. Prove that $X$ is connected.
 	\item Suppose that the work \textbf{TOPOLOGY} is written in purple ink on a square of white paper. Let $V$ denote the subspace consisting of the white paper that remains. How many path-connected components  does $V$ have? For each such component $X$, compute $\pi_1(X)$.
 	\end{enumerate}
 	\end{prob}
 	
-	\begin{prob}{F20}{}
+	\begin{prob}{F20}{F20.6}
 	Suppose that $X$ is a metric space. Define what it means for $C \sq X$ to be \emph{complete}.
 	\begin{enumerate}[(i)]
 	\item Show that if $C$ and $D$ are complete subsets of $X$ then $C\cup D$ is complete.
