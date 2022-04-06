@@ -1,0 +1,22 @@
+\documentclass[../AlgebraQualSolutions.tex]{subfiles}
+
+\begin{document}
+
+\section{Basic Point Set Topology}
+
+\begin{prob}{F20}{F20.1}
+\begin{enumerate}[(a)]
+\item Give an example of two topological spaces $X,Y$ and a continuous bijection $f: X \to Y$ that is not a homeomorphism.
+\item Show that if $X$ is compact and $Y$ is Hausdorff, then every continuous bijection between the spaces is a homeomorphism.
+\end{enumerate}
+\end{prob}
+
+\begin{solution}
+Let $X = [0,1]$ with the standard topology and $Y = [0,1]$ with the trivial topology. Let $f: X \to Y$ be the identity map. Clearly $f$ is bijective. The only open sets in $Y$ are $\varnothing $ and $[0,1]$. Since both $f\inv(\varnothing) = \varnothing$ and $f\inv([0,1]) = [0,1]$ are open in $X$, $f$ is continuous. However, $f$ is not a homeomorphism since $(0,1)$ is open in $X$ but $f(0,1) = (0,1)$ is not open in $Y$.
+\end{solution}
+
+\begin{proof}
+Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff space. To show that $f$ is a homeomorphism, it remains to check that $f$ is an open mapping. This is equivalent to proving that $f$ maps closed sets to closed sets. Let $A \sq X$ be a closed set. Since $X$ is compact, $A$ is compact in $X$. Then, $f(A) \sq Y$ must be compact since $f$ is continuous. In a Hausdorff space, any compact set is closed and thus $f(A)$ is closed in $Y$, as desired.
+\end{proof}
+
+\end{document}

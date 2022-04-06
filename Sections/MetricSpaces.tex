@@ -1,0 +1,25 @@
+\documentclass[../AlgebraQualSolutions.tex]{subfiles}
+
+\begin{document}
+
+\section{Metric Spaces}
+
+\begin{prob}{S20}{}
+Let $(X,d)$ be a metric space and fix a point $x_0 \in X$. Let $\rho$ be a new metric given by $\rho(x,y) = d(x,x_0) + d(y,x_0)$ whenever $x \neq y$ and $\rho(x,y) = 0$ if $x = y$. Verify that $\rho$ is a metric and $(X,\rho)$ is complete.
+\end{prob}
+
+\begin{proof}
+By construction, $\rho(x,y) \geq 0$ for each $x,y \in X$. Suppose $\rho(x,y) = 0$ but $x \neq y$. Then, $0 = \rho(x,y) = d(x,x_0) + d(y,y_0)$. Since at most one of $x$ and $y$ can be $x_0$, $d(x,x_0) + d(y,y_0) > 0$. Therefore $\rho(x,y) = 0$ if and only if $x = y$. Suppose now that $x,y, z \in X$. Then,
+    \[\rho(x,y) + \rho(y,z) = d(x,x_0) + d(y,x_0) + d(y,x_0) + d(z,x_0) = \rho(x,z) + 2 d(y,x_0) \geq \rho(x,z) \]
+proving that $\rho$ is a metric.\\
+
+To see that $(X, \rho)$ is a complete metric space, let $(x_n)$ be a Cauchy sequence in $(X, \rho)$. Let $\epsilon > 0$ and choose $N \in \N$ sufficiently large such that $\rho(x_N, x_n) < \epsilon$ whenever $n \geq N$. This means that whenever $n \geq N$,
+    \[ d(x_n,x_0) \leq d(x_N, x_0) + d(x_n, x_0) = \rho(x_N, x_m) < \epsilon. \]
+Therefore, $x_n \to x_0$ in $(X,d)$. Equivalently, as $n \to \infty$, $d(x_n,x_0) \to 0$. Then,
+    \[\rho(x_n, x_0) = d(x_n, x_0) + d(x_0, x_0) = d(x_n, x_0) \]
+meaning that as $n \to \infty$, $\rho(x_n,x_0) \to 0$. That is, $x_n \to x_0$ in $(X,\rho)$.
+\end{proof}
+
+
+
+\end{document}

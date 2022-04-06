@@ -1,0 +1,17 @@
+\documentclass[../AlgebraQualSolutions.tex]{subfiles}
+
+\begin{document}
+
+
+\section{Fundamental Group}
+
+\begin{prob}{F20}{F20.4}
+Prove that no pair of the following spaces are homeomorphic to one another:
+    \[ S^0, \; S^1 \times \R, \; S^1 \times S^2, \; \R \times S^2, \; S^2 \]
+\end{prob}
+
+\begin{proof}
+First note that $S^0$ is a discrete space while the remaining spaces are not. Therefore, $S^0$ cannot be homeomorphic to any of the other spaces. Because $S^1 \times \R$ and $\R \times S^2$ are unbounded and therefore not compact, neither of these spaces is homeomorphic to either of compact spaces, $S^1 \times S^2$ or $S^2$. As $S^1 \times \R$ is the product of path-connected spaces, $\pi_1(S^1 \times \R) \cong \pi_1(S^1) \times \pi_1(\R) \cong \Z$. Similarly, $\pi_1(\R \times S^2) \cong \pi_1(\R) \times \pi_1(S^2) \cong 0$. As the fundamental group is preserved under homeomorphisms, $S^1 \times \R$ and $\R \times S^2$ are not homeomorphic. Similarly, $S^1 \times S^2$ and $S^2$ are not homeomorphic since $\pi_1(S^1 \times S^2) \cong \Z$ and $\pi_1(S^2) = 0$.
+\end{proof}
+
+\end{document}

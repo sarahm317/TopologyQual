@@ -1,0 +1,23 @@
+\documentclass[../AlgebraQualSolutions.tex]{subfiles}
+
+\begin{document}
+
+\section{Homeomorphic Spaces}
+
+\begin{prob}{S20}{}
+Prove that $S^2$ is homeomorphic to a quotient space of $S^1 \times [0,1]$.
+\end{prob}
+
+\begin{proof}
+Define an equivalence relation $\sim$ on $S^1 \times [0,1]$ such that
+    \[(\theta,0) \sim (\theta', 0) \]
+and
+    \[(\theta,1) \sim (\theta', 1) \]
+for any $\theta,\theta' \in S^1$. Then $S^1 \times [0,1]/ \sim$ is an annulus with each of the boundary disks crushed to a point. Note that
+    \[S^2 = \{(\theta, \phi): 0 \leq \theta \leq 2\pi, 0 \leq \varphi \leq \pi \}. \]
+where all points of the form $(\theta, 0)$ correspond to the north pole of $S^2$ and all points of the form $(\theta, \pi)$ correspond to the south pole of $S^2$. Every other point in $S^2$ has a unique description in this coordinate system.\\
+
+Define $f: S^1 \times [0,1]/ \sim \to S^2$ by $f(\theta,t) = (\theta, \pi t)$. Observe that $f$ is well-defined as all points in $S^1 \times \{0\}$ are mapped to the north pole and all points in $S^1 \times \{1\}$ are mapped to the south pole. As both component functions of $f$ are continuous, $f$ is continuous. Given any $(\theta, \varphi) \in S^2$, $f(\theta, \varphi/\pi) = (\theta, \varphi)$, proving that $f$ is surjective. To see that $f$ is injective, suppose that $f(\theta,t) = f(\theta', t')$. Then, $(\theta,\pi t) = (\theta',\pi t')$. This means that $t = t'$. If $t = 0$, then $(\theta,0) \sim (\theta' 0)$. If $t = 1$, $(\theta,1) \sim (\theta' 1)$. If $t,t' \not\in \{0,\pi\}$ then $\theta = \theta'$. In any case, $(\theta,t) = (\theta, t') \in S^1 \times [0,1] /\sim$. As $f$ is a continuous bijection from a compact space to a Hausdorff space, $f$ is a homeomorphism.
+\end{proof}
+
+\end{document}
