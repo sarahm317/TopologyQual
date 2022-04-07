@@ -4,6 +4,23 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{F12}{F12.4}
+    Suppose that $(X,d)$ is a metric space and $A \sq X$.
+    \begin{enumerate}[(a)]
+        \item For a fixed $x \in X$, define what is meant by $d(x,A)$.
+        \item Show that for all $x,y \in X$, $d(x,A) \leq d(x,y) + d(y,A)$.
+        \item Show that the function $f: X \to \R$ given by $f(x) = d(x,A)$ is a continuous function.
+    \end{enumerate}
+\end{prob}
+
+Fix $x \in X$. Then $d(x,A) = \inf_{a \in A} d(x,a)$ describes the distance from $x$ to the set $A$.
+
+\begin{proof}
+    Let $x,y \in X$ be arbitrary. Because $d$ is a metric, for each $a \in A$, $d(x,a) \leq d(x,y) + d(y,a)$. Therefore,
+        \[d(x,A) \leq d(x,a) \leq d(x,y) + d(y,a). \]
+    This means that for each $a \in A$, $d(x,A) - d(x,y) \leq d(y,a)$. Because $d(y,A)$ is the infimum over all $d(y,a)$ with $a \in A$, it is the greatest lower bound. It then follows that $d(x,A) - d(x,y) \leq d(y,A)$, as desired.
+\end{proof}
+
 \begin{prob}{S20}{}
 Let $(X,d)$ be a metric space and fix a point $x_0 \in X$. Let $\rho$ be a new metric given by $\rho(x,y) = d(x,x_0) + d(y,x_0)$ whenever $x \neq y$ and $\rho(x,y) = 0$ if $x = y$. Verify that $\rho$ is a metric and $(X,\rho)$ is complete.
 \end{prob}
