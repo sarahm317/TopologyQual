@@ -19,4 +19,25 @@ Let $X = [0,1]$ with the standard topology and $Y = [0,1]$ with the trivial topo
 Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff space. To show that $f$ is a homeomorphism, it remains to check that $f$ is an open mapping. This is equivalent to proving that $f$ maps closed sets to closed sets. Let $A \sq X$ be a closed set. Since $X$ is compact, $A$ is compact in $X$. Then, $f(A) \sq Y$ must be compact since $f$ is continuous. In a Hausdorff space, any compact set is closed and thus $f(A)$ is closed in $Y$, as desired.
 \end{proof}
 
+\begin{prob}{F12}{F12.3}
+    Prove the following:
+    \begin{enumerate}[(a)]
+        \item A closed subspace of a compact space is compact.
+        \item A compact subspace of a Hausdorff space is closed.
+        \item If $f: X \to Y$ is a continuous bijection, $X$ is compact and $Y$ is Hausdorff, then $f$ is a homeomorphism.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    Suppose that $A \sq X$ is a closed subspace of a compact space. Let $\{U_i\}_{i \in I}$ be an open cover of $A$. Extend this collection to an open cover of $X$ by appending the open set $X - A$. Because $X$ is compact, there exists a finite subcover of $X$, say $\{U_1, \ldots, U_n\}$. If some $U_j = X - A$, remove this $U_j$ from the list to obtain a finite subcover for $A$, from the original collection of open sets. As any open cover of $A$ has a finite subcover, $A$ is compact.
+\end{proof}
+
+\begin{proof}
+    Assume that $A \sq X$ is a compact subspace of a Hausdorff space. To prove that $A$ is closed, we prove that $X - A$ is open. Let $x \in X - A$. Because $X$ is Hausdorff, for each $a \in A$ there exist open neighborhoods $U_a$ of $x$ and $V_a$ of $a$ where $U_a \cap V_a = \varnothing$. Then, the collection $\{V_a\}_{a \in A}$ forms an open cover of $A$. Since $A$ is compact, there exists a finite subcover, say $\{V_{a_1}, \ldots, V_{a_n}\}$. Then, $U = \bigcap_{i=1}^n U_{a_i}$ is an open set containing $x$ that is disjoint from $A$ and thus is contained in $X - A$. Therefore, $X - A$ is open and so $A$ is closed.
+\end{proof}
+
+\begin{proof}
+    See \ref{F20.1}.
+\end{proof}
+
 \end{document}

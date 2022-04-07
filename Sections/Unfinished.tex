@@ -14,25 +14,38 @@
     \end{enumerate}
 \end{prob}
 
+A topological space $X$ is disconnected if there exist open sets $A,B$ with $A \cap B = \varnothing$ and $X = A \sqcup B$. The space $X$ is connected if it is not disconnected.
+
 \begin{prob}{F12}{F12.2}
     Let $X,Y,T$ be topological spaces.
 
     \begin{enumerate}[(a)]
         \item Define the product topology on $X \times Y$.
         \item Show that the projection functions $p_X: X \times Y \to X$ and $p_Y: X \times Y \to Y$ are continuous.
-        \item Show that a function $f: T \to X \times Y$ is continuous if and only if both $p_X \circ T$ and $p_Y \circ T$ are continuous.
+        \item Show that a function $f: T \to X \times Y$ is continuous if and only if both $p_X \circ f$ and $p_Y \circ f$ are continuous.
         \item Show that the product topology on $X \times Y$ is the unique topology that for all spaces $T$ and functions $f$, (c) is satisfied.
     \end{enumerate}
 \end{prob}
 
-\begin{prob}{F12}{F12.3}
-    Prove the following:
-    \begin{enumerate}[(a)]
-        \item A closed subspace of a compact space is compact.
-        \item A compact subspace of a Hausdorff space is closed.
-        \item If $f: X \to Y$ is a continuous bijection, $X$ is compact and $Y$ is Hausdorff, then $f$ is a homeomorphism.
-    \end{enumerate}
-\end{prob}
+Let $X,Y$ be topological spaces. The product topology on $X \times Y$ has a basis given by $U \times V$ where $U \sq X$ is open and $V \sq Y$ is open. That is, any open set in $X \times Y$ with respect to the product topoology is the union of sets of the form $U \times V$.
+
+\begin{proof}
+Let $p_X: X\times Y \to X$ be the projection function onto $X$. Let $U \sq X$ be an open set. Then,
+    \[p_X\inv(U) = U \times Y.\]
+Because $U$ is open in $X$ and $Y$ is open in $Y$, $U \times Y$ is open in $X \times Y$. Therefore $p_X$ is continuous. Similarly, for any open subset $V$ of $Y$,
+    \[p_Y\inv(V) = X \times V\]
+which is open in $X \times Y$. Whence both projection functions are continuous.
+\end{proof}
+
+\begin{proof}
+    Assume that $f: T \to X \times Y$ is continuous. Let $U \sq X$ and $V \sq Y$ be arbitrary open subsets. Because $p_X$ is continuous, $p_X\inv(U)$ is open in $X \times Y$. Since $f$ is continuous, $f\inv(p_X\inv(U))$ is open in $T$. Therefore, $(p_X \circ f)\inv(U)$ is open in $T$ implying that $p_X \circ f$ is continuous. Similarly, $p_Y\inv(V)$ is open in $X \times Y$ and therefore $f\inv(p_Y\inv(V))$ is open in $T$. This implies that $p_Y \circ f$ is continuous.\\ 
+
+    Now assume that both $p_X \circ f$ and $p_Y \circ f$ are continuous. Let $U \times V$ be an arbitary basic open set in $X \times Y$. Then $U \sq X$ and $V \sq Y$ are both open. Because the projections are continuous, both $p_X\inv(U)$ and $p_Y\inv(V)$ are open in $X \times Y$. Let $t \in f\inv(U \times V)$. If $f(t) = (x,y)$ then $x \in U$ and $y \in V$. This means that $p_X(f(t)) = x \in U$ and $p_Y(f(t)) = y \in V$. That is, $t \in f\inv(p_X\inv(U)) \cap f\inv(p_Y\inv(V))$. Note that the reverse of each of these implications holds and therefore $f\inv(U \times V) = f\inv(p_X\inv(U)) \cap f\inv(p_Y\inv(V))$. As $U$ and $V$ are open and the the compositions are assumed to be continuous, $f\inv(U \times V)$ is the intersection of two open sets and thus must also be open. Since $U \times V$ was an arbitrary basic open set, $f$ is continuous.
+\end{proof}
+
+\begin{proof}
+    \textcolor{red}{Need help with proving uniqueness in part (d).}
+\end{proof}
 
 \begin{prob}{F12}{F12.4}
     Suppose that $(X,d)$ is a metric space and $A \sq X$.
@@ -42,6 +55,15 @@
         \item Show that the function $f: X \to \R$ given by $f(x) = d(x,A)$ is a continuous function.
     \end{enumerate}
 \end{prob}
+
+
+Fix $x \in X$. Then $d(x,A) = \inf_{a \in A} d(x,a)$ describes the distance from $x$ to the set $A$.
+
+\begin{proof}
+    Let $x,y \in X$ be arbitrary. Because $d$ is a metric, for each $a \in A$, $d(x,a) \leq d(x,y) + d(y,a)$. Therefore,
+        \[d(x,A) \leq d(x,a) \leq d(x,y) + d(y,a). \]
+    This means that for each $a \in A$, $d(x,A) - d(x,y) \leq d(y,a)$. Because $d(y,A)$ is the infimum over all $d(y,a)$ with $a \in A$, it is the greatest lower bound. It then follows that $d(x,A) - d(x,y) \leq d(y,A)$, as desired.
+\end{proof}
 
 \begin{prob}{F12}{F12.5}
     Let $X$ be a metric space.
