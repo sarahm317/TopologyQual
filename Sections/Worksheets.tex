@@ -2,9 +2,75 @@
 
 \begin{document}
 
-\section{Worksheet Problem}
+\section{Worksheet Problems}
 
-\begin{wksht}{Worksheet 1.1}{}
+\begin{wksht}{}{}
+    Let $X$ and $Y$ be non-empty topological spaces. Prove or disprove the following:
+
+    \begin{enumerate}[(a)]
+        \item $f: X \to Y$ is continuous if and only if $f(\cl{H}) \sq \cl{f(H)}$ for all $H \sq X$.
+        \item If $f: X \to Y$ is continuous and $H \sq X$, then $f(\cl{H}) = \cl{f(H)}$.
+        \item If $f: X \to Y$ is continuous and $H \sq Y$ then $f\inv(\cl{H}) = \cl{f\inv(H)}$.
+    \end{enumerate}
+\end{wksht}
+
+
+\begin{wksht}{}{}
+    Prove or disprove the following:
+
+    \begin{enumerate}[(a)]
+        \item Any quotient of a Hausdorff space is Hausdorff.
+        \item Any metric space is normal.
+        \item If $X$ is a topological space and $A \sq B \sq X$, then $\cl{A} \cap B$ is the closure of $A$ with respect to the subspace topology on $B$. Here $\cl{A}$ is the closure of $A$ in $X$.
+    \end{enumerate}
+\end{wksht}
+
+\begin{solution}
+Let $X = \R \times \{0,1\}$. Then $X$ is clearly Hausdorff. Let $\sim$ be the equivalence relation on $X$ where $(x,0) \sim (x,1)$ if and only if $x \neq 0$. Then, $X / \sim$ is not Hausdorff as there is no way to separate $(0,0)$ and $(0,1)$.\\
+
+Alternatively, let $Y = [0,2]$ and let $A = (1,2]$. Then $Y$ is Hausdorff, but $Y/A$ is not Hausdorff as there is no way to separate 1 from 2 with open sets in the quotient space.
+\end{solution}
+
+\begin{proof}
+    \textcolor{red}{Let $(X,d)$ be a metric space. Let $A,B \sq X$ be disjoint, closed sets. Fix $a \in A$.}
+\end{proof}
+
+\begin{wksht}{}{}
+    Let $X$ be a topological space. Prove or provide a counterexample:
+    \begin{enumerate}[(a)]
+        \item $\Int{X - A} = X - \cl{A}$.
+        \item $\Int{\cl{A}} = \Int{\cl{\Int{A}}}$.
+        \item $\Int{\Int{A}} = \Int{A}$.
+    \end{enumerate}
+\end{wksht}
+
+
+\begin{wksht}{}{}
+Suppose that $X$ is compact, $Y$ is Hausdorff, and $f: X \to Y$ is a continuous bijection.
+    \begin{enumerate}[(a)]
+        \item Prove that $f$ is a homeomorphism.
+        \item Give counterexamples to show that both hypotheses are necessary.
+    \end{enumerate}
+\end{wksht}
+
+\begin{proof}
+    See \ref{prob:F20.1} for a full solution. The lemmas necessary in this proof are the following:
+
+    \begin{itemize}
+        \item A closed subset of a compact space is compact.
+        \item A compact subset of a Hausdorff space is closed.
+    \end{itemize}
+\end{proof}
+
+\begin{solution}
+    Let $X = [0,2\pi)$, $Y = S^1$, and $f: X \to Y$ the map given by $f(\theta) = e^{i\theta}$. Then $X$ is not compact, $Y$ is a Hausdorff space, and $f$ is a continuous bijection. However, $f$ is not a homeomorphism because $X$ is not compact and $S^1$ is compact.\\
+
+    Let $X = [0,1]$ under the usual topology and $Y = [0,1]$ under the trivial topology. Let $f: X \to Y$ be the identity map. Then $X$ is compact, $Y$ is not Hausdorff, and $f$ is a continuous bijection. However, $f$ is not a homeomorphism because $(0,1/2)$ is open in $X$ but its image is not open in $Y$.
+\end{solution}
+
+
+\begin{wksht}{}{}
+    A nonempty subset $U$ of $\R$ is open in the Zriski topology on $\R$ if $\R - U$ is a finite set. Prove that $\R$ is compact with respect to this topology.
 \end{wksht}
 
 \end{document}
