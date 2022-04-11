@@ -1,0 +1,23 @@
+\documentclass[../TopologyQualSolutions.tex]{subfiles}
+
+\begin{document}
+
+\section{Homotopy}
+
+\begin{prob}{F12}{F12.7}
+    Define \emph{homotopy equivalence}. Show that a homotopy equivalence $f: X \to Y$ gives a bijection between the path components of $X$ and those of $Y$.
+\end{prob}
+
+\begin{proof}
+    If $f: X \to Y$ is a homotopy equivalence, then there exists a homotopy inverse $g: Y \to X$ such that $g\circ f \simeq \ident_X$ and $f \circ g \simeq \ident_Y$.\\
+
+    Let $D_X$ and $D_Y$ be the sets of connected components of $X$ and $Y$, respectively.  Define a function $\varphi: D_X \to D_Y$ by
+	    \[\varphi([x]) = [f(x)]\]
+    where $[x]$ denotes the connected component of $X$ containing $x$ and $[f(x)]$ denotes the connected component of $Y$ containing $f(x)$. We first show that $\varphi$ is well-defined. Suppose that $a$ and $b$ are in the same connected component of $X$. That is $a \in [b]$. Because connectedness is preserved under continuous maps, $f([b]) = \{f(x): x \in [b]\}$ is a connected set. Furthermore, both $f(a)$ and $f(b)$ are contained in $f([b])$. As the connected component of an element is defined to be the union of all connected sets containing that element, $f(a)$ and $f(b)$ are in the same connected component. That is, $\varphi([a]) = [f(a)] = [f(b)] = \varphi([b])$ and so $\varphi$ is well-defined. Define a second function $\psi:D_Y \to D_X$ by
+        $$\psi([y]) = [g(y)]$$
+    $\psi$ is also well defined, closely following the proof given for $\varphi$.\\
+
+    Fix $x \in X$ and let $h_t$ be a homotopy from $gf$ to $\ident_X$. Since $\psi \circ \varphi([x]) = [g\circ f(x)]$ and $\alpha: t \mapsto h_t(x)$ is a path from $g\circ f(x)$ to $x$, we see that $g \circ f(x)$ and $x$ are in the same path-component of $X$. But, path-connected sets are connected, and thus $g\circ f(x)$ and $x$ are in the same connected component of $X$. This means that $\psi \varphi = \ident$ and similarly, $\varphi \psi = \ident$.\\
+\end{proof}
+
+\end{document}
