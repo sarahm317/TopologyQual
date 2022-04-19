@@ -68,7 +68,19 @@ which is open in $X \times Y$. Whence both projection functions are continuous.
 \end{proof}
 
 \begin{proof}
-    \textcolor{red}{Need help with proving uniqueness in part (d).}
+    Let $T = X \times Y$ under an arbitrary topology. The identity map $\ident: T \to T$ is continuous and therefore both $p_X\circ \ident: T \to X$ and $p_Y \circ \ident: T \to Y$ are continuous. That is, for any open sets $U \sq X$ and $V \sq Y$,
+        \[(p_X \circ \ident)\inv(U) = U \times Y \]
+    and
+        \[(p_Y \circ \ident)\inv(V) = X \times V \]
+    are both open in $T$. As a finite intersection of open sets is open, $(U \times Y) \cap (X \times V) = U \times V$ is open in $T$ whenever $U$ is open in $X$ and $V$ is open in $Y$. That is, every basis element for the product topology is open in $T$ as well.\\
+
+    \textcolor{red}{Worried about reverse direction here.}
+    
+    Now consider the identity map $\ident: T \to X \times Y$. Let $U \times V \sq X \times Y$ be a basic open set for the product topology. Then,
+        \[(p_X \circ \ident)\inv( U \times V) = \ident\inv(U \times Y) = U \times Y\]
+    and
+        \[(p_Y \circ \ident)\inv( U \times V) = \ident\inv(X \times V) = X \times V.\]
+    Since both $U \times Y$ and $X \times V$ are open in $X \times Y$, 
 \end{proof}
 
 \end{document}
