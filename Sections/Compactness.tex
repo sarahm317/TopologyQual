@@ -1,0 +1,15 @@
+\documentclass[../TopologyQualSolutions.tex]{subfiles}
+
+\begin{document}
+
+\section{Compactness}
+
+\begin{prob}{F13}{F13.4}
+    Prove that a finite union of compact subsets of a topological space is compact. Give a counterexample to show that countable unions of compact sets need not be compact.
+\end{prob}
+
+\begin{proof}
+    Suppose that $A_1, \ldots, A_n$ are each compact. Define $A = \bigcup_{k=1}^n A_k$ and suppose that $\{U_\alpha\}$ is an open cover of $A$. Note that each $A_k \sq A$ and thus $\{U_\alpha\}$ is an open cover for each $A_k$. For each $A_k$, let $\scr{A}_k \sq \{U_\alpha\}$ be a finite subcover for $A_k$. That is, $\scr{A}_k$ is a finite collection of the $U_\alpha$ that covers $A_k$. Then, $\scr{A} = \bigcup_{k=1}^n \scr{A}_k$ is a finite collection of $U_\alpha$ that covers each $A_k$. That is, $\scr{A}$ is a finite subcover of $\{U_\alpha\}$ for $A$.
+\end{proof}
+
+\end{document}
