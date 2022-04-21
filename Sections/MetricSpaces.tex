@@ -4,6 +4,20 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{F13}{F13.5}
+    Let $X$ be a complete metric space and $\{C_n\}_{n \in \N}$ a collection of non-empty closed sets such that $C_1 \supseteq C_2 \supseteq \cdots$. Assume that the sequence of diameters of the $C_n$ goes to zero. Prove that the intersection $\cap C_n$ of this collection is nonempty.
+\end{prob}
+
+\begin{proof}
+    Construct a sequence $\{x_n\}$ by choosing any $x_i \in C_i$ for each $i = 1,2,\ldots$. Because the sets are nested, $x_n \in C_k$ whenever $k \leq n$ for each $n \in \N$.\\
+
+    Let $\{r_n\}$ be the sequence of diameters of the $C_n$. By assumption, $r_n \to 0$. Let $\epsilon > 0$ be arbitrary and choose $N \in \N$ where $n \geq N$ implies that $|r_n| < \epsilon$. Assume that $m,n \geq N$ and that $m \geq n$. Then,
+        \[\norm[x_n - x_m] \leq r_n < \epsilon \]
+    since $x_n,x_m \in C_n$. This means that $\{x_n\}$ is a Cauchy sequence in a complete space -- let $x \in X$ be the limit of $\{x_n\}$.\\
+
+    To see that $x \in C_N$ for each $N$, notice that $\{x_n\}_{n \geq N}$ is a subseqeunce of $\{x_n\}$ that is contained in $C_N$. Since $x_n \to x$, this subseqeunce also converges to $x$ meaning that $x$ is a limit point of $C_N$. But, $C_N$ is closed and therefore contains all its limit points. Since $x \in \bigcap_{n=1}^\infty C_n$, the intersection is nonempty.
+\end{proof}
+
 \begin{prob}{S12}{S12.4}
     Suppose that $(X,d)$ is a metric space and $A \sq X$.
     \begin{enumerate}[(a)]
