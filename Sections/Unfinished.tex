@@ -59,19 +59,6 @@ The interior of a connected set need not be connected. Let $X \sq \R^2$ be the c
     Let $\{Y_\alpha\}$ be a collection of topological spaces, $Y = \prod_{\alpha} Y_\alpha$ their product under the product topology, and $\pi_\beta: Y \to Y_\beta$ the projection map to the $\beta$th factor of the product. Prove that a function $f: X \to Y$ is continuous if and only if for all $\beta$ the composition $\pi_\beta \circ f: X \to Y_\beta$ is continuous.
 \end{prob}
 
-\begin{prob}{F13}{F13.7}
-    Let $f: X \to Y$ be a continuous, surjective map between compact, Hausdorff spaces. Define an equivalence relation $\sim$ on $X$ so that $f$ factors as 
-        \[X \xra{q} X' \xra{f'} Y\]
-    where $X' = X/\sim$, $q$ is the quotient map, and $f'$ is any bijection. Prove that $f'$ is a homeomorphism.
-\end{prob}
-
-\begin{proof}
-    Observe that the quotient of a compact space is compact. Therefore, $f': X/\sim \to Y$ is a map from a compact space to a Hausdorff space. Because $f'$ is a bijection, proving that $f'$ is continuous will imply that $f'$ is a homeomorphism. By definition of the quotient topology, a set in $X/\sim$ is open if and only if its preimage under $q$ is open in $X$. If $U \sq Y$ is any open set,
-        \[f\inv(U) = (f' \circ q)\inv(U) = q\inv\left((f')\inv(U)\right) \]
-\end{proof}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fall 2012}
 

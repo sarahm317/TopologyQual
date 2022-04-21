@@ -4,6 +4,18 @@
 
 \section{Homeomorphic Spaces}
 
+\begin{prob}{F13}{F13.7}
+    Let $f: X \to Y$ be a continuous, surjective map between compact, Hausdorff spaces. Define an equivalence relation $\sim$ on $X$ so that $f$ factors as 
+        \[X \xra{q} X' \xra{f'} Y\]
+    where $X' = X/\sim$, $q$ is the quotient map, and $f'$ is any bijection. Prove that $f'$ is a homeomorphism.
+\end{prob}
+
+\begin{proof}
+    Observe that the quotient of a compact space is compact. Therefore, $f': X/\sim \to Y$ is a map from a compact space to a Hausdorff space. Because $f'$ is a bijection, proving that $f'$ is continuous will imply that $f'$ is a homeomorphism. By definition of the quotient topology, a set in $X/\sim$ is open if and only if its preimage under $q$ is open in $X$. If $U \sq Y$ is any open set,
+        \[f\inv(U) = (f' \circ q)\inv(U) = q\inv\left((f')\inv(U)\right). \]
+    Since $f$ is continuous, $f\inv(U)$ is open and therefore $(f')\inv(U)$ is open. That is, $f'$ is continuous.
+\end{proof}
+
 \begin{prob}{S20}{}
 Prove that $S^2$ is homeomorphic to a quotient space of $S^1 \times [0,1]$.
 \end{prob}
