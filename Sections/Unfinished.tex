@@ -23,35 +23,38 @@
     is an open set with $\Delta \sq V \sq U$.
 \end{prob}
 
-
-
-\begin{prob}{F13}{F13.5}
-    Let $X$ be a complete metric space and $\{C_n\}_{n \in \N}$ a collection of non-empty closed sets such that $C_1 \supseteq C_2 \supseteq \cdots$. Assume that the sequence of diameters of the $C_n$ goes to zero. Prove that the intersection $\cap C_n$ of this collection is nonempty.
+\begin{prob}{F13}{F13.3}
+    Prove or provide a counter example to the following:
+    \begin{enumerate}[(a)]
+        \item The interior of a connected set is connected.
+        \item The closure of a path connected set is path connected.
+        \item The quotient of a connected set is connected (under the quotient topology).
+        \item If $C$ is an infinite collection of connected sets where every pair of sets in $C$ has a non-empty intersection then its union is connected.
+    \end{enumerate}
 \end{prob}
+
+\begin{solution}
+The interior of a connected set need not be connected. Let $X \sq \R^2$ be the closed unit ball with center $(0,1)$ and $Y \sq \R^2$ the closed unit ball with center (0,-1). Then $X \cup Y$ is connected as the set is path-connected. However, the interior of $X \cup Y$ is the union of the corresponding open balls. In this case, the open balls provide a separation meaning that the interior is not connected.
+\end{solution}
+
+\begin{solution}
+    The clsure of a path connected set need not be path connected. Consider the Topologist's Spiral. Let $X$ denote the spiral and $Y = S^1$ so that the Topologist's Spiral can be written as $X \cup Y$. In this case, $X$ is path-connected, but the closure of $X$ in $X \cup Y$ is $X \cup Y$ which is not path-connected.
+\end{solution}
+
+\begin{proof}
+    Let $X$ be a connected set and $\sim$ some equivalence relation on $X$. Let $Y = X/\sim$. The quotient map $q: X \to X/\sim$ is a surjective, continuous map. As the continuous image of a connected set is connected, it follows that $X/\sim$ is connected.
+\end{proof}
+
+\begin{proof}
+    \textcolor{red}{Help!}
+\end{proof}
 
 \begin{prob}{F13}{F13.6}
     Let $\{Y_\alpha\}$ be a collection of topological spaces, $Y = \prod_{\alpha} Y_\alpha$ their product under the product topology, and $\pi_\beta: Y \to Y_\beta$ the projection map to the $\beta$th factor of the product. Prove that a function $f: X \to Y$ is continuous if and only if for all $\beta$ the composition $\pi_\beta \circ f: X \to Y_\beta$ is continuous.
 \end{prob}
 
-\begin{prob}{F13}{F13.7}
-    Let $f: X \to Y$ be a continuous, surjective map between compact, Hausdorff spaces. Define an equivalence relation $\sim$ on $X$ so that $f$ factors as 
-        \[X \xra{q} X' \xra{f'} Y\]
-    where $X' = X/\sim$, $q$ is the quotient map, and $f'$ is any bijection. Prove taht $f'$ is a homeomorphism.
-\end{prob}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fall 2012}
-
-\begin{prob}{F12}{F12.1}
-    Suppose $X,Y$ are topological spaces and $A \sq X$ and $B\sq Y$. Prove that
-    \begin{enumerate}[(a)]
-        \item $\Int{A \times B} = \Int{A} \times \Int{B}$.
-        \item $\cl{A \times B} = \cl{A} \times \cl{B}$.
-        \item $\partial(A \times B) = [\partial(A) \times \cl{B}]\cup [\cl{A} \times \partial(B)]$.
-    \end{enumerate}
-\end{prob}
 
 \begin{prob}{F12}{F12.2}
     Let $X$ be a nonempty set and let $\scr{B} = \scr{B}(X,\R)$ denote the set of bounded real valued functions on $X$. Metrize $\scr{B}$ by setting
