@@ -83,6 +83,14 @@ The interior of a connected set need not be connected. Let $X \sq \R^2$ be the c
     \end{enumerate}
 \end{prob}
 
+See \ref{prob:S12.2} for the definition.
+
+A topological space $X$ is path connected if for any two points $x,y \in X$, there exists a continuous function $\gamma: [0,1] \to X$ where $\gamma(0) = x$ and $\gamma(1) = y$. Here, $\gamma$ is a path.
+
+\begin{proof}
+    Assume that $X$ and $Y$ are both path connected. Let $(x_1,y_1),(x_2,y_2) \in X \times Y$ be arbitrary. Since $x_1, x_2 \in X$, there exists a path $\alpha: [0,1] \to X$ with $\alpha(0) = x_1$ and $\alpha(1) = x_2$. Similarly, since $y_1,y_2 \in Y$ there exists a path $\beta: [0,1] \to Y$ where $\beta(0) = y_1$ and $\beta(1) = y_2$. Define $\gamma: [0,1] \to X \times Y$ be $\gamma(t) = (\alpha(t), \beta(t))$. Observe that $\gamma(0) = (x_1,y_1)$ and $\gamma(1) = (x_2,y_2)$. Furthermore, $\gamma$ is continuous as each of its component functions is continuous. Thus, $\gamma$ is a path in $X \times Y$ between $(x_1,y_1)$ and $(x_2,y_2)$. As these points were arbitrary, $X \times Y$ is path connected.
+\end{proof}
+
 \begin{prob}{F12}{F12.5}
     Give a careful definition of a connected topological space.
     \begin{enumerate}[(a)]
