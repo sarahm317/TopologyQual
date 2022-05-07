@@ -64,6 +64,45 @@ For any topological spaces $X$ and $Y$,
     Let $X$ be a complete metric space and $f: X \to X$ a contraction map. Then $f$ has a unique fixed point.
 \end{prop}
 
+\begin{proof}
+    Let $0 \leq \alpha < 1$ be such that
+        \[d(f(x),f(y)) \leq \alpha d(x,y)\]
+    for each $x,y \in X$. Fix $x \in X$ and define a sequence in $X$ by $x_n = f^{(n)}(x)$ where $f^{(n)}(x)$ denotes composition of $f$, $n$ times. Let $x_0 = x$. If $f(x) = x$, then $x$ is a fixed point of $f$. Suppose $f(x) \neq x$ so that $d(x,f(x)) > 0$.\\
+
+
+    \begin{claim}
+        $\{x_n\}$ is a Cauchy sequence in $X$.
+
+        \begin{proof}
+            Fix $\epsilon > 0$ and let $m, n \in \N$ where $m \geq n$. Let $k = m-n$. Observe:
+
+            \begin{align*}
+                d(x_n,x_m) &= d\left(f^{(n)}(x), f^{(m)}(x)\right)\\
+                &\leq \alpha^{n}d\left(x, f^{(k)}(x)\right)
+            \end{align*}
+
+            by applying the contraction property $n$ times. Also notice that
+            \begin{align*}
+                d\left(x, f^{(k)}(x)\right) &\leq \sum_{j=0}^{k-1} d\left(f^{(j)}(x), f^{(j+1)}(x)\right)\\
+                &\leq \sum_{j=0}^{k-1} \alpha^j d\left(x, f(x)\right)\\
+                &= d\left(x, f(x)\right) \sum_{j=0}^{k-1} \alpha^j\\
+            \end{align*}
+            Therefore,
+                   \[d(x_n,x_m) \leq \alpha^n d\left(x, f(x)\right) \sum_{j=0}^{k-1} \alpha^j = d\left(x, f(x)\right) \sum_{j=n}^{m-1} \alpha^j\]    
+            Since $0 \leq \alpha < 1$, $\sum_{j=n}^{m-1} \alpha^j$ is the tail-end of a convergent geometric series. Therefore, by choosing sufficiently large $m,n$,
+            \[d(x_n,x_m) \leq d\left(x, f(x)\right) \sum_{j=n}^{m-1} \alpha^j < \epsilon.\] 
+        \end{proof}
+    \end{claim}
+
+    Since $\{x_n\}$ is a Cauchy sequence in a complete space, there exists a unique $y \in X$ such that $f^{(n)}(x) = x_n \to y$. Furthermore, any subsequence of $\{x_n\}$ also must converge to $y$. As $f$ is a contraction mapping, $f$ is also continuous and therefore,
+    \[y = \lim_{n\to\infty} x_{n+1} = \lim_{n\to\infty} f(x_n) = f\left(\lim_{n\to\infty} x_n\right) = f(y).\]
+That is, $y$ is a fixed point of $f$. Suppose now that $y' \in X$ is such that $f(y') = y'$. Then,
+    \[d(y,y') \leq d(y,f(y)) + d(f(y),f(y')) + d(y',f(y')) = d(f(y), f(y')).\]
+Since $f$ is a contraction mapping,
+    \[d(f(y), f(y')) \leq \alpha d(y,y') < d(y,y')\]
+which is a contradiction unless $d(y,y') = 0$. Therefore $y$ is the unique point in $X$ for which $f(y) = y$.
+\end{proof}
+
 \begin{prop}{}{}
     Let $C([0,1])$ be the collection of continuous functions from [0,1] to $\R$. Then $(C([0,1]), \norm_{\sup})$ is connected and complete.
 \end{prop}
@@ -72,12 +111,54 @@ For any topological spaces $X$ and $Y$,
     The  topologist's sine curve is connected but is not path-connected.
 \end{prop}
 
+\begin{proof}
+    Define $S = \{(x,\sin(1/x): x> 0)\}$ and $Y = \{0\} \times [-1,1]$. Let $X = Y \cup S \sq \R^2$ be the topologist's sine curve.\\
+
+    \begin{claim}
+        The closure of $S$ in $X$ is $X$.
+        \begin{proof}
+            By definition of closure, $S \sq \ol{S}$. Suppose that $p = (0,y) \in Y$. We must show that $p$ is the limit of a sequence of points in $S$. Notice that $-1 \leq y \leq 1$ and so there exists $\theta \in [-\pi,\pi]$ such that $\sin(\theta) = y$. By the periodicity of $\sin$, for each $n \in \N$, $\sin(\theta + 2\pi n) = y$. Let $x_n = \frac{1}{\theta + 2\pi n}$. Then, $(x_n, \sin(1/x_n))$ is a sequence  of points in $S$. As $x_n \to 0$ as $n \to \infty$ and each $\sin(1/x_n) = y$, the limit of $(x_n, \sin(1/x_n))$ is $(0,y)$. Therefore, $Y \sq \ol{S}$ meaning that $X \sq \cl{S}$. Since $\ol{S} \sq X$ always, it follows  that $\ol{S} = X$, as desired.
+        \end{proof}
+    \end{claim}
+
+    \begin{claim}
+        $S$ is connected.
+
+        \begin{proof}
+            For any two points in $S$, the graph of $f(x) = \sin(1/x)$ provides a path between the two points. Therefore $S$ is path-connected. Since any path-connected set is also connected, $S$ is connected.
+        \end{proof}
+    \end{claim}
+
+    Since $S \sq X \sq \cl{S}$ and $S$ is connected, $X$ must be connected (\ref{thm:clConnected}).\\
+
+    Seeking a contradiction, suppose that $X$ is path-connected. Let $\theta = 1/2\pi$, $x = (\theta,\sin(1/\theta)) \in S$ and $y = (0,0) \in Y$. Assume that $\gamma: [0,1] \to X$ is a path from $x$ to $y$. Then, $\gamma$ is a continuous map where $\gamma(0) = x$ and $\gamma(1) = y$. Let $\epsilon = \frac{1}{2}$ and since $\gamma$ is continuous there exists $\delta > 0$ where $t \in (1 - \delta, 1]$ implies that $\norm[\gamma(t) - \gamma(1)] < \epsilon$. That is, for each $t \in (1-\delta,1]$, $\gamma(t)$ is in the ball of radius 1/2 about the origin. Write $(x_0, y_0) = \gamma(1 - \delta)$. Let $p$ be the projection map of $\R^2$ onto the $x$-axis. Then, $f = p \circ \gamma$ is a composition of continuous maps and is therefore continuous. Notice that $0, x_0 \in f((1-\delta,1])$. Since continuous maps preserve connectedness, $f((1-\delta,1])$ is a connected subset of $\R$ that contains both $0$ and $x_0$. But the only connected sets in $\R$ are intervals and therefore $[0,x_0] \sq f((1-\delta,1])$. This is impossible as there exists $n \in \N$ such that $0 < \frac{1}{\pi/2 + 2\pi n} < x_0$ and $f\left(\frac{1}{\pi/2 + 2\pi n}\right) = 1 > 1/2$.
+
+\end{proof}
+
 \begin{prop}{}{}
     A locally path-connected, connected space $X$ is path-connected.
 \end{prop}
 
+\begin{prop}{}{clConnected}
+    Suppose that $H$ is connected and $K$ is such that $H \sq K \sq \ol{H}$. Then, $K$ is connected.
+\end{prop}
+
+\begin{proof}
+    Suppose that $U$ and $V$ are nonempty, open, disjoint sets such that $U \cup V = K$. Then, $U \cap H$ and $V \cap H$ are both open in $H$ with respect to the subspace topology. Since $U \cap H$ and $V \cap H$ are disjoint and $H$ is connected, either $H \sq U$ or $H \sq V$. Without loss of generality, assume $H \sq U$.
+
+    \begin{claim}
+       $\ol{H} \sq U$.
+
+        \begin{proof}
+            Suppose not. Then there exists a limit point $x \in V$ of $H$. Since $x$ is a limit point of $H$, every open set containing $x$ must intersect $H$. However, $V$ is an open set and since $V \cap U = \varnothing$, $V$ is disjoint from $H$.
+        \end{proof}
+    \end{claim}
+
+    Since $K \sq \ol{H}$ and $\ol{H} \sq U$, $K \sq U$. This is a contradiction of the choice in $U$ and $V$.
+\end{proof}
+
 \begin{prop}{}{}
-    A closed set is disconnected if and only if it is a union of dijsoint, closed sets.
+    A closed set is disconnected if and only if it is a union of disjoint, closed sets.
 \end{prop}
 
 \begin{prop}{Heine Borel Theorem}{}
@@ -88,9 +169,31 @@ For any topological spaces $X$ and $Y$,
     Every compact Hausdorff space is normal.
 \end{prop}
 
+\begin{proof}
+    Suppose that $X$ is a compact Hausdorff space. Let $A,B \sq X$ be nonempty, disjoint, closed sets. Notice that $A,B$ are both compact since they are closed subsets of a compact space (\ref{thm:compactClosed}).\\
+    
+    Fix a point $a \in A$. For each $b \in B$, choose disjoint open sets $U_{a,b}$ and $V_{a,b}$ such that $a \in U_{a,b}$ and $b \in V_{a,b}$. The collection $\{V_{a,b}\}$ forms an open cover for $B$ and since $B$ is compact, there exists a finite subcover, say $\{V_{a,b_1},\ldots, V_{a,b_n}\}$. Then the corresponding intersection $U_a = \bigcap_{k=1}^n U_{a,b_k}$ is an open set containing $a$ that is disjoint from $B$. Define $V_a = \bigcup_{k=1}^n V_{a,b_k}$. Then $U_a$ and $V_a$ are disjoint open sets.\\
+
+    Repeat this process for each $a \in A$ to generate an open cover $\{U_a\}$ for $A$. Since $A$ is compact, there exists a finite subcover, say $\{U_{a_1},\ldots, U_{a_m}\}$. Let $U = \bigcup_{k=1}^m U_{a_k}$ and $V = \bigcap_{k=1}^m V_{a_k}$. Both $U$ and $V$ are open sets and by construction are disjoint such that $A \sq U$ and $B \sq V$.
+\end{proof}
+
 \begin{prop}{}{}
     Every metrizable space is normal.
 \end{prop}
+
+\begin{proof}
+    Suppose that $X$ is a metrizable space and that $d$ is a metric on $X$. Let $A,B \sq X$ be closed and disjoint subsets. Define $f: X \to [0,1]$ by
+        \[f(x) = \frac{d(x,A)}{d(x,A) + d(x,B)}.\]
+    Here,
+        \[d(x,A) = \inf_{y\in A} \{d(x,y)\}\]
+    and $d(x,B)$ is defined similarly. Because $A$ and $B$ are closed, if $d(x,A) = 0$ then $x \in A$ and so $x \not\in B$ meaning that $d(x,B) > 0$. In particular this means that at most one of $d(x,A)$ and $d(x,B)$ can be zero and so $f$ is well-defined. For any $a \in A$, $f(a) = 1$ and for any $b \in B$, $f(b) = 0$.\\
+
+    Since $f$ is the composition, quotient, and sum of continuous functions, $f$ is continuous. Therefore the sets
+        \[U = f\inv\left([0,1/3)\right)\]
+    and
+        \[V = f\inv\left((2/3,1]\right)\]
+    are open sets where $B \sq U$ and $A \sq V$.
+\end{proof}
 
 \begin{prop}{}{}
     Let $X$ and $Y$ be topological spaces and suppose that $U,V \sq X$ and $W \sq Y$. Then,
