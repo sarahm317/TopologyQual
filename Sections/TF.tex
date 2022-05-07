@@ -8,6 +8,10 @@
 Prove or disprove: Suppose that $X = U \cup V$ where $U$ and $V$ are both open and simply connected. Then, $X$ is simply connected.
 \end{prob}
 
+\begin{solution}
+    This is false. Let $X = S^1$ and define $U = \{e^{i\theta}: 0 < \theta< 3\pi/2\}$ and $V = \{e^{i\theta}: \pi < \theta < 5\pi/2\}$. Each of $U$ and $V$ is an open arc of $S^1$ and thus each is simply connected. Alsok, $U \cup V = X$. However, $\pi_1(X) = \Z$ meaning that $S^1$ is not simply connected.
+\end{solution}
+
 \begin{prob}{}{}
     Prove or disprove: If $f: X \to Y$ is continuous and surjective, then the induced homeomorphism $f_*: \pi_1(X) \to \pi_1(Y)$ is surjective.
 \end{prob}
@@ -17,23 +21,52 @@ Prove or disprove: Suppose that $X = U \cup V$ where $U$ and $V$ are both open a
 \end{prob}
 
 \begin{prob}{}{}
-    Prove or disprove: Let $X$ be a compact topological space and $\{F_n\}$ a nested sequence of closed sets $F_1 \supseteq F_2 \supseteq \cdots$. Then $\cap F_n \neq \varnothing$.
+    Prove or disprove: Let $X$ be a compact topological space and $\{F_n\}$ a nested sequence of nonempty closed sets $F_1 \supseteq F_2 \supseteq \cdots$. Then $\cap F_n \neq \varnothing$.
 \end{prob}
 
+\begin{proof}
+    Seeking a contradiction, suppose that $\bigcap_{n=1}^\infty F_n = \varnothing$. Then,
+        \[X = X - \bigcap_{n=1}^\infty F_n = \varnothing = \bigcup_{n=1}^\infty X - F_n. \]
+    Since each $F_n$ is closed, each $X - F_n$ is open and therefore the collection $\{X - F_n\}$ forms an open cover for $X$. As $X$ is compact, we may extract a finite subcover, say $\{X-F_1, \ldots, X - F_N\}$ (possibly relabeling, but still maintaining the nestedness of the $F_k$). Then,
+        \[X = \bigcup_{k=1}^N X - F_k = X - \bigcap_{k=1}^N F_k  = X - F_N \]
+    implying that $F_N = \varnothing$, a contradiction. 
+\end{proof}
+
 \begin{prob}{}{}
-    Prove or disprove: Let $X$ be a compact topological space and $\{U_n\}$ a nested sequence of open sets $U_1 \sq U_2 \sq \cdots$. Then $\cap U_n \neq \varnothing$.
+    Prove or disprove: Let $X$ be a compact topological space and $\{U_n\}$ a nested sequence of open sets $U_1 \supseteq U_2 \supseteq \cdots$. Then $\cap U_n \neq \varnothing$.
 \end{prob}
+
+\begin{solution}
+    Let $X = [0,1]$ with the usual topology and define $U_n = \left(0,\frac{1}{n}\right)$. Then $U_1 \supseteq U_2 \supseteq \cdots$, but $\cap U_n = \varnothing$.
+\end{solution}
 
 \begin{prob}{}{}
     Prove or disprove: A closed and bounded subset of a topological space is compact.
 \end{prob}
 
+\begin{solution}
+    Consider $\R$ with the discrete topology induced by the metric
+        \[d(x,y) = \begin{cases}
+            0 & x = y\\
+            1 & x \neq y
+        \end{cases}.\]
+    Then $\R = \ol{B_2(0)}$ where $\ol{B_2(0)}$ is the closed ball of radius 2 about 0. However, $\R$ with this topology is not compact: consider the open cover $\{B_{1/2}(x)\}_{x \in \R}$. Each element of the open cover contains a single element of $\R$ and therefore no finite subcover exists.
+\end{solution}
+
 \begin{prob}{}{}
     Prove or disprove: The continuous image of a closed set is closed.
 \end{prob}
 
+\begin{solution}
+    Consider the identity map $f: X \to Y$ where $X = [0,1]$ with the discrete metric and $Y = [0,1]$ with the indiscrete metric. Since $X$ is equipped with the discrete topology, every set is closed but the only closed sets in $Y$ are $[0,1]$ and $\varnothing$. Therefore, $f(\{0\}) = \{0\}$ is a continuous image of a closed set but is not closed.
+\end{solution}
+
 \begin{prob}{}{}
     Prove or disprove: If $f: X \to Y$ is a continuous surjective and $Y$ is Hausdorff, then $X$ is Hausdorff.
 \end{prob}
+
+\begin{solution}
+    Let $X = \{0,1\}$ with the topology $\{\varnothing, \{0\}, X\}$ and $Y = \{0\}$ with the topology $\{\varnothing, Y\}$. Let $f: X \to Y$ be the zero map. Then $f$ is continuous and a surjection. Any space with a single point is trivially Hausdorff. However, $X$ is not Hausdorff as 0 and 1 cannot be separated with open sets. 
+\end{solution}
 
 \end{document}
