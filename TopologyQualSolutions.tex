@@ -96,6 +96,18 @@
 \newtcbtheorem[use counter*=defn]{wksht}{Worksheet}%
 {fonttitle=\bfseries}{wksht}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Allow for claims inside a proof
+\newlist{Claim}{description}{1}% allow 3 levels of nesting
+\setlist[Claim]{labelindent=3em,leftmargin=*}
+
+\let\originalqedsymbol\qedsymbol
+\newenvironment{claim}{%
+  % disable qed symbol if there is no star
+  \let\qedsymbol\relax%
+  \Claim\item[\textbf{Claim\csuse{theclaim}:}]%
+  }{\endClaim\let\qedsymbol\originalqedsymbol}
+
 \begin{document}
 
 \section{Directory}
