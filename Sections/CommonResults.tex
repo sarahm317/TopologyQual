@@ -17,7 +17,7 @@
     If $X$ and $Y$ are both regular, then $X \times Y$ is regular.
 \end{prop}
 
-\begin{prop}{}{}
+\begin{prop}{}{ctsImage}
     \begin{enumerate}[(a)]
     \item The continuous image of a compact space is compact.
     \item The continuous image of a connected space is connected.
@@ -30,7 +30,7 @@ For any topological spaces $X$ and $Y$,
     \[\ol{X \times Y} = \ol{X} \times \ol{Y} \]
 \end{prop}
 
-\begin{prop}{}{}
+\begin{prop}{}{compactHaus}
     A compact set in a Hausdorff space is closed.
 \end{prop}
 
@@ -38,7 +38,7 @@ For any topological spaces $X$ and $Y$,
     Let $A \sq X$ be a compact subspace of a Hausdorff space. If $X - A = \varnothing$, $A$ is trivially closed. Otherwise, let $x \in X - A$. For each $y \in A$, choose nonempty, disjoint, open sets $U_y$ and $V_y$ such that $x \in U_y$ and $y \in V_y$. Then the collection $\{V_y\}$ is an open cover for $A$. Since $A$ is compact there exists a finite subcover, say $\{V_1,\ldots, V_n\}$. Let $\{U_1,\ldots, U_n\}$ be the open sets that correspond to the chosen $V_k$. Let $U = \bigcap_{k=1}^n U_k$. Then $U$ is an open set containing $x$ that is  disjoint from each $V_y$. In particular, this means that $U \sq X - A$ and as $x \in X - A$ was arbitrary, it follows that $X - A$ is open. Whence $A$ is closed.
 \end{proof}
 
-\begin{prop}{}{}
+\begin{prop}{}{compactClosed}
     A closed subspace of a compact set is compact.
 \end{prop}
 
@@ -49,6 +49,12 @@ For any topological spaces $X$ and $Y$,
 \begin{prop}{}{}
     A continuous bijection from a compact space to a Hausdorff space is a homeomorphism.
 \end{prop}
+
+\begin{proof}
+    Suppose that $f: X \to Y$ is a continuous bijection from a compact space to a Hausdorff space. Let $g: Y \to X$ be the inverse of $f$. Let $A \sq X$ and notice that $g\inv(A) = f(A)$ since $f$ and $g$ are inverses. Therefore to show that $g$ is continuous, it suffices to show that $f(A)$ is closed for each closed subset $A$ of $X$.\\
+
+    Let $A \sq X$ be closed. Then, $A$ is a closed subset of a compact set and therefore is compact (\ref{thm:compactClosed}). Since the continuous image of a compact set is compact (\ref{thm:ctsImage}), $f(A) \sq Y$ is compact. But, $Y$ is Hausdorff and since a compact set in a Hausdorff space is closed (\ref{thm:compactHaus}), $f(A)$ is closed.
+\end{proof}
 
 \begin{prop}{}{}
     Suppose that $(X,d)$ is a metric space. Then $X$ is compact if and only if $X$ is sequentially compact.
