@@ -13,10 +13,6 @@
     \end{enumerate}
 \end{prop}
 
-\begin{prop}{}{}
-    If $X$ and $Y$ are both regular, then $X \times Y$ is regular.
-\end{prop}
-
 \begin{prop}{}{ctsImage}
     \begin{enumerate}[(a)]
     \item The continuous image of a compact space is compact.
@@ -25,10 +21,17 @@
     \end{enumerate}
 \end{prop}
 
-\begin{prop}{}{}
-For any topological spaces $X$ and $Y$,
-    \[\ol{X \times Y} = \ol{X} \times \ol{Y} \]
-\end{prop}
+\begin{proof}
+    Let $f: X \to Y$ be continuous and suppose that $X$ is compact. Suppose that $\{U_\alpha\}$ is an open cover for $f(X)$. Since $f$ is continuous, each $f\inv(U_\alpha)$ is open in $X$. For any $x \in X$, $f(x) \in U_\alpha$ for some $U_\alpha$. Therefore, $x \in f\inv(U_\alpha)$ implying that $\{f\inv(U_alpha)\}$ is an open cover for $X$. Since $X$ is compact, extract a finite subcover, say $\{f\inv(U_1),\ldots, f\inv(U_n)\}$. Consider the corresponding collection $\{U_1,\ldots, U_n\}$ from the original cover. For each $k$, $f\left(f\inv(U_k)\right) \sq U_k$. Since $\{f\inv(U_1),\ldots, f\inv(U_n)\}$ covers $X$, $\{U_1,\ldots, U_n\}$ covers $f(X)$, as desired.
+\end{proof}
+
+\begin{proof}
+    Suppose that $f: X \to Y$ is continuous and $X$ is connected. Seeking a contradiction, let $U \cup V = f(X)$ be a separation for the image of $X$. Since $f$ is continuous, both $f\inv(U)$ and $f\inv(V)$ are open in $X$. Since $U \cup V = f(X)$, each $x \in X$ is contained in either $f\inv(U)$ or $f\inv(V)$. Therefore $X \sq f\inv(U) \cup f\inv(V)$. Trivially, $f\inv(U) \cup f\inv(V) \sq X$ and so $X = f\inv(U) \cup f\inv(V)$. Since both $f\inv(U)$ and $f\inv(V)$ are nonempty and $X$ is connected, $f\inv(U)\cap f\inv(V) \neq \varnothing$. This implies $U \cap V \neq \varnothing$.
+\end{proof}
+
+\begin{proof}
+    Suppose that $f: X \to Y$ is continuous and $X$ is path-connected. Let $f(x),f(y)$ be in the image of $f$. Since $X$ is path-connected, there exists a path $\gamma: [0,1] \to X$ from $x$ to $y$ where $\gamma(0) = x$ and $\gamma(y) = 1$. Let $\alpha = f\circ \gamma: [0,1] \to f(X)$. Then $\alpha$ is the composition of continuous functions and so also must be continuous. Also, $\alpha(0) = f(x)$ and $\alpha(1) = f(y)$ meaning that $\alpha$ is a path from $f(x)$ to $f(y)$.
+\end{proof}
 
 \begin{prop}{}{compactHaus}
     A compact set in a Hausdorff space is closed.
@@ -194,6 +197,10 @@ which is a contradiction unless $d(y,y') = 0$. Therefore $y$ is the unique point
         \[V = f\inv\left((2/3,1]\right)\]
     are open sets where $B \sq U$ and $A \sq V$.
 \end{proof}
+
+\begin{prop}{}{}
+    If $X$ and $Y$ are both regular, then $X \times Y$ is regular.
+\end{prop}
 
 \begin{prop}{}{}
     Let $X$ and $Y$ be topological spaces and suppose that $U,V \sq X$ and $W \sq Y$. Then,
