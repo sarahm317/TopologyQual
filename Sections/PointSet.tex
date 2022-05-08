@@ -4,7 +4,29 @@
 
 \section{Basic Point Set Topology}
 
-\begin{prob}{F17.1}{F17.1}
+
+\begin{prob}{S17.2}{S17.2}
+    Let $X$ be a compact space, $Y$ a topological space, and $\scr{C}$ an open cover of $X \times Y$. Prove that for all $y \in Y$ there exists an open neighborhood $U$ of $y$ such that $X \times U$ is contained in the union of finitely many elements from $\scr{C}$.
+\end{prob}
+
+\begin{proof}
+    Fix $y \in Y$ and notice that $X \cong X \times \{y\}$. Therefore $X \times \{y\}$  is also compact and since $\scr{C}$ is an open cover for $X \times \{y\}$, there exists a finite subcover, say $\{W_1,\ldots, W_n\}$. Recall that every open set in $X \times Y$ can be written as a union of sets of the form $V_\alpha \times U_\alpha$ where $V_\alpha \sq X$ and $U\alpha \sq Y$ are both open. Define $U$ to be the union of the $U_\alpha$ that generate the $W_k$. Then $U$ is a union of open sets in $Y$ that are open. Since $X \times \{y\} \sq \bigcup{k=1}^n W_k$, $y \in W_k$ for some $k$. Since $U$ was created from the basic open sets for $W_k$, $y \in U$. By construction of $U$ and choice in the cover, $X \times U \sq \bigcup_{k=1}^n W_k$, as desired.
+\end{proof}
+
+
+\begin{prob}{F05.1, F14.4}{F05.1}
+    A space $X$ is step connected if given any open covering $\scr{U}$ of $X$ and any pair of points $p,q \in X$ there exists a finite sequence $U_1,\ldots,U_n$ of sets in $\scr{U}$ such that $p \in U_1$, $q \in U_n$ and $U_i \cap U_{i+1} \neq \varnothing$ for each $1 \leq i \leq n-1$. Prove that a space is step connected if and only if it is connected.
+\end{prob}
+
+\begin{proof}
+    Assume that $X$ is step connected and suppose that $U,V$ are nonempty, disjoint, open sets such that $X = U \cup V$. Let $p \in U$ and $q\in V$. Since $\scr{U} = \{U,V\}$ is a collection of open sets there exists a finite sequence of sets in $\scr{U}$ connecting $p$ to $q$. Since $U \cap V = \varnothing$, it is impossible to form the step connection, a contradiction. Therefore $X$ is connected.\\
+
+    Assume now that $X$ is connected and let $\scr{U} = \{U_\alpha\}$ be a collection of open sets. Let $p,q \in X$ be arbitary. Construct a sequence of open sets as follows: let $V_0$ be any $U_\alpha \in \scr{U}$ and let $V_1$ be the union of each $U_\alpha \in \scr{U}$ that has nonempty intersection with $V_0$. For each $n \in \N$, inductively define $V_n$ to be the union of all $U_\alpha$ in $\scr{U}$ that have nonempty intersection with $V_{n-1}$. By construction, each $V_n$ is an open set and therefore $V = \bigcup_{n=1}^\infty V_n$ is also open.\\
+    
+    Seeking a contraction, suppose that $q \not\in V$. Notice that $X - V$ is the union of the $U_\alpha$ that are disjoint from $V$ and therefore $X - V$ is open. But this implies that $V$ is both open and closed. Since $X$ is connected, either $V = X$ or $V = \varnothing$. Both of these are impossible since $q \not\in V$ and $p \in V$.
+\end{proof}
+
+\begin{prob}{S17.1}{S17.1}
     \begin{enumerate}[(a)]
         \item Any quotient of a Hausdorff space is Hausdorff.
         \item Any metric space is normal.
@@ -99,7 +121,7 @@ Let $X = [0,1]$ with the standard topology and $Y = [0,1]$ with the trivial topo
 Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff space. To show that $f$ is a homeomorphism, it remains to check that $f$ is an open mapping. This is equivalent to proving that $f$ maps closed sets to closed sets. Let $A \sq X$ be a closed set. Since $X$ is compact, $A$ is compact in $X$. Then, $f(A) \sq Y$ must be compact since $f$ is continuous. In a Hausdorff space, any compact set is closed and thus $f(A)$ is closed in $Y$, as desired.
 \end{proof}
 
-\begin{prob}{S12}{S12.3}
+\begin{prob}{S12.3, F11.6}{S12.3}
     Prove the following:
     \begin{enumerate}[(a)]
         \item A closed subspace of a compact space is compact.
@@ -120,7 +142,7 @@ Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff s
     See \ref{prob:F20.1}.
 \end{proof}
 
-\begin{prob}{S12}{S12.2}
+\begin{prob}{W08.1, S12.2}{S12.2}
     Let $X,Y,T$ be topological spaces.
 
     \begin{enumerate}[(a)]

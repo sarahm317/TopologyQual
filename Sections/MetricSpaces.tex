@@ -4,7 +4,22 @@
 
 \section{Metric Spaces}
 
-\begin{prob}{F13}{F13.5}
+\begin{prob}{F05.4}{F05.4}
+    Define what it means for a function $f: X \to Y$ to be continuous. Give the $\epsilon-\delta$ definition of continuity for metric spaces. Prove that these definitions are equivalent in a metric space.
+\end{prob}
+
+\begin{enumerate}[(1)]
+    \item A function $f: X \to Y$ is continuous if for each open set $U \sq Y$, the set $f\inv(U)$ is open in $X$. 
+    \item In a metric space, $f$ is continuous at $x \in X$ if for every $\epsilon > 0$ there exists $\delta > 0$ such that $d_X(x,y) < \delta$ implies that $d_Y(f(x),f(y)) < \epsilon$. The function $f$ is continuous if $f$ is continuous at each $x \in X$.
+\end{enumerate}
+
+\begin{proof}
+    Let $(X,d)$ and $(Y,\rho)$ be metric spaces. Assume that (1) holds. Let $\epsilon > 0$ and $x \in X$. Then $B_\epsilon(f(x))$ is an open set in $Y$ and therefore $f\inv\left(B_\epsilon(f(x))\right)$ must be an open set in $X$. Since $(X,d)$ has a basis consisting of open balls and $x \in f\inv\left(B_\epsilon(f(x))\right)$, there exists some open ball $B_\delta(x) \sq X$ such that $f\left(B_\delta(x)\right) \sq B_\epsilon(f(x))$.\\
+
+    Assume now that (2) holds and let $U$ be an open set in $Y$. Since the collection of open balls in $Y$ forms a basis for the topology, it suffices to show that the preimage of any open ball in $Y$ is open in $X$. Therefore without loss of generality, assume that $B_\epsilon(y)$ is an open ball in $Y$. Let $x \in f\inv\left(B_\epsilon(y)\right)$. Then $f(x) \in B_\epsilon(y)$. Since $B_\epsilon(y)$ is open, there exists $\epsilon'$ such that $B_{\epsilon'}(f(x)) \sq B_\epsilon(y)$. Choose $\delta > 0$ such that $f\left(B_\delta(x)\right) \sq B_{\epsilon'}(f(x))$. Then $B_\delta(x)$ is an open set in $X$ containing $x$ such that $B_\delta(x) \sq f\inv\left(B_\epsilon(y)\right)$. Therefore, $f\inv\left(B_\epsilon(y)\right)$ is open, as desired.
+\end{proof}
+
+\begin{prob}{F13.5}{F13.5}
     Let $X$ be a complete metric space and $\{C_n\}_{n \in \N}$ a collection of non-empty closed sets such that $C_1 \supseteq C_2 \supseteq \cdots$. Assume that the sequence of diameters of the $C_n$ goes to zero. Prove that the intersection $\cap C_n$ of this collection is nonempty.
 \end{prob}
 
@@ -18,7 +33,7 @@
     To see that $x \in C_N$ for each $N$, notice that $\{x_n\}_{n \geq N}$ is a subseqeunce of $\{x_n\}$ that is contained in $C_N$. Since $x_n \to x$, this subseqeunce also converges to $x$ meaning that $x$ is a limit point of $C_N$. But, $C_N$ is closed and therefore contains all its limit points. Since $x \in \bigcap_{n=1}^\infty C_n$, the intersection is nonempty.
 \end{proof}
 
-\begin{prob}{S12}{S12.4}
+\begin{prob}{S12.4}{S12.4}
     Suppose that $(X,d)$ is a metric space and $A \sq X$.
     \begin{enumerate}[(a)]
         \item For a fixed $x \in X$, define what is meant by $d(x,A)$.
