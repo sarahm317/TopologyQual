@@ -4,6 +4,64 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{F19.6}{F19.6}
+    Let $X$ be a compact topological space. Give a proof or counterexample for the following:
+
+    \begin{enumerate}[(a)]
+        \item Let $\{F_k\}$ be a decreasing, nested sequence of non-empty closed subsets of $X$. Then, $\bigcap_{k=1}^\infty F_k \neq \varnothing$.
+        \item Let $\{O_k\}$ be a decreasing, nested sequence of non-empty open subsets of $X$. Then, $\bigcap_{k=1}^\infty O_k \neq \varnothing$.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    This is true: see \ref{prob:nestedClosed}.
+\end{proof}
+
+\begin{solution}
+    This is false: see \ref{prob:nestedOpen}.
+\end{solution}
+
+
+\begin{prob}{F06.1}{F06.1}
+    Let $X$ and $Y$ be topological spaces.
+    
+    \begin{enumerate}[(a)]
+        \item Define the product topology on $X \times Y$.
+        \item Define what it means for a space $X$ to be connected.
+        \item Show that $X$ and $Y$ are connected if and only if $X\times Y$ is connected.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    See \ref{productResults}.
+\end{proof}
+
+\begin{prob}{F16.6}{F16.6}
+    Give an example of a space that is connected but not path-connected. Prove the example works.
+\end{prob}
+
+
+\begin{solution}
+    Consider the topologist's sine curve. See \ref{thm:topSine} for the details.
+\end{solution}
+
+\begin{prob}{F16.2}{F16.2}
+    Give a proof or counterexample for the following:
+
+    \begin{enumerate}[(a)]
+        \item Every closed subset of a compact space is compact.
+        \item The product of any two connected spaces is connected.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    See \ref{thm:compactClosed}.
+\end{proof}
+
+
+\begin{proof}
+    See \ref{thm:productResults}.
+\end{proof}
 
 \begin{prob}{S17.2}{S17.2}
     Let $X$ be a compact space, $Y$ a topological space, and $\scr{C}$ an open cover of $X \times Y$. Prove that for all $y \in Y$ there exists an open neighborhood $U$ of $y$ such that $X \times U$ is contained in the union of finitely many elements from $\scr{C}$.

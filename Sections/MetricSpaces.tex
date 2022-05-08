@@ -4,6 +4,30 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{F19.5}{F19.5}
+    Define a $K$-contraction mapping of a metric space. Show that if $K < 1$, then a $K$ contraction of a complete metric space has a unique fixed point. Must this be true when $K = 1$?\\
+    
+    Let $f: X \to X$ and suppose there exists an $n \in \N$ and $K < 1$ where $f^{(n)}(x)$ is a $K$-contraction. Prove that $f$ has a unique fixed point.
+\end{prob}
+
+\begin{proof}
+    To see that any $K$-contraction with $K < 1$ has a unique fixed point, see \ref{thm:contraction}.\\
+
+    If $K = 1$, a $K$-contraction mapping need not have a unique fixed point. Let $f: \R \to \R$ be the identity map. Clearly $f$ is a contraction and $\R$ is complete. However, every point is fixed by $f$, violating the uniqueness.\\
+
+    Suppose now that $f^{(n)}(x)$ is a $K$-contraction. Then there exists a unique point $x \in X$ such that $f^{(n)}(x) = x$. But,
+        \[f(x) = f\left(f^{(n)}(x)\right) = f^{(n)}\big(f(x)\big)\]
+    meaning that $f(x) = x$, by the uniqueness of the fixed point for $f^{(n)}$.
+\end{proof}
+
+\begin{prob}{F16.3, F06.4}{F16.3}
+    Prove that a metric space is compact if and only if it is sequentially compact.
+\end{prob}
+
+\begin{proof}
+    See \ref{thm:seqCompactMS}.
+\end{proof}
+
 \begin{prob}{F05.4}{F05.4}
     Define what it means for a function $f: X \to Y$ to be continuous. Give the $\epsilon-\delta$ definition of continuity for metric spaces. Prove that these definitions are equivalent in a metric space.
 \end{prob}
