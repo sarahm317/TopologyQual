@@ -3,6 +3,30 @@
 \begin{document}
 
 \section{Basic Point Set Topology}
+
+\begin{prob}{F17.1}{F17.1}
+    \begin{enumerate}[(a)]
+        \item Any quotient of a Hausdorff space is Hausdorff.
+        \item Any metric space is normal.
+        \item If $X$ is a topological space and $A \sq B \sq X$ and $\ol{A}$ is the closure of $A$ in $X$, then $\ol{A} \cap B$ is the closure of $A$ with respect to the subspace topology on $B$.
+    \end{enumerate}
+\end{prob}
+
+\begin{solution}
+    This is false. Consider $X = [0,2]$ and $A = (1,2]$ where $X$ is equipped with the usual topology. Then $X$ is Hausdorff, but $X/A$ is not Hausdorff since 1 cannot be separated from $A$.
+\end{solution}
+
+\begin{proof}
+    This is true: see \ref{thm:metNormal}.
+\end{proof}
+
+\begin{proof}
+    Let $C$ denote the closure of $A$ in $B$.  Since $\ol{A}$ is closed in $X$, $\ol{A} \cap B$ is a closed set in $B$ with respect to the subspace topology. Since $A \sq B$ and $A \sq \ol{A}$, $A \sq \ol{A} \cap B$. But, $C$ is the smallest closed set in $B$ that contains $A$ and thus $C \sq \ol{A} \cap B$.\\
+
+    On the other hand, $C$ is closed in $B$. Then $C = C' \cap B$ for some set $C' \sq X$ that is closed in $X$. Since $A \sq C$ by definition of closure, $A \sq C'$. But, $\ol{A}$ is the smallest closed set containing $A$ and therefore $\ol{A} \sq C'$. Therefore, $\ol{A}\cap B \sq C' \cap B = C$.
+\end{proof}
+
+
 \begin{prob}{F13}{F13.3}
     Prove or provide a counter example to the following:
     \begin{enumerate}[(a)]
