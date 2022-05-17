@@ -4,6 +4,16 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{(S20.2)}{S20.2}
+    Suppose that $X$ is a metric space such that every sequence in $X$ has a Cauchy subsequence. Prove that $X$ can be covered by finitely many balls of radius 1.
+\end{prob}
+
+\begin{proof}
+    Suppose not. That is, assume that no finite collection of balls of radius 1 can cover $X$. Then we may construct a sequence of points in $X$ as follows: let $r = 1$ and let $x_1$ be any point in $X$. Choose $x_2 \in X \sm B_r(x_1)$. Such an $x_2$ must exist or else $X$ would be covered by one ball of radius 1. For each $n \in \N$, choose $x_n \in X \sm \bigcup_{k=1}^{n-1}B_r(x_k)$. If this process were to terminate after $n$ steps, then a finite number of balls of radius 1 would cover $X$.\\
+
+    By assumption, the sequence $\{x_n\}$ must have some Cauchy subsequence. However, this is impossible since each of the $x_k$ are at least distance 1 apart.
+\end{proof}
+
 \begin{prob}{(F18.2)}{F18.2}
     Let $d: \Z^+ \times \Z^+ \to \R$ be the function
         \[d(x,y) = \begin{cases} 0 & x = y\\
