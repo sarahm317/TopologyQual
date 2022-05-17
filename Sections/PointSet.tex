@@ -4,6 +4,49 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{(S00.4), (S13.7), (F17.4), (F19.2)}{S00.4}
+    Define what it means for a collection of subsets of a set $X$ to be a basis for a topology on $X$. Give a necessary condition for a collection of sets to be a basis for a topology.\\
+
+    Let $X$ be the set of subsets of $\N$. If $A$ is a finite subset of $\N$ and $B \sq \N$ is such that $\N \sm B$ is finite, define $[A,B] \sq X$ as 
+        \[[A,B] = \{E \sq \N: A \sq E \sq B\}.\]
+    Prove that the collection of $[A,B]$ form a basis for a topology on $X$. Prove that with respect to this topology, $X$ is Hausdorff and disconnected. Prove that the function $f: X \times X \to X$ given by 
+        \[f(E_1,E_2) = E_1 \cap E_2\]
+    is continuous.
+\end{prob}
+
+A collection of subsets of a set $X$ is a \emph{basis} if every open set in $X$ can be written as the union of a subfamily of subsets in the collection.\\
+
+To check if a collection $\scr{B}$ forms a basis for $X$, it suffices to show that $\scr{B}$ covers $X$ and that given $B_1,B_2 \in \scr{B}$ and $x \in B_1 \cap B_2$, there exists $B_3 \in \scr{B}$ such that $x \in B_3 \sq B_1 \cap B_2$.\\
+
+A collection $\scr{B}$ is a basis for a topological space $X$ if every set in $\scr{B}$ is open in $X$ and for any point $x \in X$ and open set $U$ containing $x$, there exists a set $B \in \scr{B}$ such that $x \in \scr{B} \sq U$.\\
+
+\begin{proof}
+    Let $\scr{B}$ denote the collection of all $[A,B]$ with $A \sq \N$ finite and $B \sq \N$ cofinite. Let $E \sq \N$ be an arbitrary element in $X$. Then, $E \in [\varnothing, \N] \in \scr{B}$. That is, the collection $\scr{B}$ covers $X$.\\
+
+    Suppose now that $[A_1,B_1],[A_2,B_2] \in \scr{B}$.  If $E \in [A_1,B_1] \cap [A_2,B_2]$ then $A_1 \cup A_2 \sq E \sq B_1 \cap B_2$. But $A_1$ and $A_2$ being finite implies that $A_1 \cup A_2$ is finite. Similarly, since both $\N \sm B_1$ and $\N \sm B_2$ are finite, $\N \sm (B_1 \cap B_2)$ is finite. Therefore, $E \in [A_1\cup A_2, B_1 \cap B_2] \in \scr{B}$.
+\end{proof}
+
+\begin{proof}
+    Let $E, F \sq \N$ be distinct subsets. Without loss of generality, there exists $n \in E \sm F$. Then, $E \in [\{n\}, \N]$, $F \not\in [\{n\}, \N]$, and $[\{n\}, \N] \in \scr{B}$. Also, $E \not\in [\varnothing, \N - \{n\}]$, $F \in [\varnothing, \N - \{n\}]$, and $[\varnothing, \N - \{n\}] \in \scr{B}$. Clearly $[\{n\}, \N]$ and $[\varnothing, \N - \{n\}]$ are disjoint. Thus, $X$ with respect to this topology is Hausdorff.\\
+\end{proof}
+
+\begin{proof}
+    Notice that any set $G \sq \N$ either contains $n$ or does not contain $n$. This means that $G \in [\{n\}, \N]$ or $G \in [\varnothing, \N - \{n\}]$. Since $X$ can be written as the disjoint union of two nonempty open sets, $X$ is disconnected.
+\end{proof}
+
+\begin{proof}
+    Let  $f: X \times X \to X$ be given by 
+    \[f(E_1,E_2) = E_1 \cap E_2.\]
+    To show that $f$ is continuous, we use the neighborhood definition of continuity: $f$ is continuous if given an arbitrary point $(E_1,E_2) \in X \times X$ and an open set $V$ containing $f(E_1,E_2)$, there exists an open set $U$ containing $(E_1,E_2)$ such that $f(U) \sq V$.\\
+    
+    Fix $(E_1,E_2) \in X \times X$ and let $[A,B]$ be an arbitrary basic open set in $X$ containing $E_1 \cap E_2$. Then $A \sq E_1 \cap E_2 \sq B$.\\
+
+    Define $B_1 = B \cup (E_1 \sm E_2)$ and $B_2 = B \cup (E_2 \sm E_1)$. Then, $E_1 = (E_1 \cap E_2) \cup (E_1 \sm E_2) \sq B_1$ and similarly, $E_2 \sq B_2$. Since $\N \sm B$ is finite, it follows that both $\N \sm B_1$ and $\N \sm B_2$ are finite. Also, $A \sq E_1\cap E_2 \sq E_1$ and $A \sq E_1 \cap E_2 \sq E_2$. Therefore, $E_1 \in [A,B_1]$ and $E_2 \in [A,B_2]$. The set $[A,B_1] \times [A,B_2]$ is a basic open set in $X \times X$. Furthermore, for any $(F_1,F_2) \in [A,B_1] \times [A,B_2]$,
+        \[A \sq F_1\cap F_2 \sq B_1 \cap B_2 = B.\]
+    That is, $f\left([A,B_1] \times [A,B_2]\right) \sq [A,B]$.
+\end{proof}
+
+
 \begin{prob}{(S20.6)}{S20.6}
     Prove that the product of two regular spaces is regular.
 \end{prob}
