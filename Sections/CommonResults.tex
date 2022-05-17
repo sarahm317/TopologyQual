@@ -204,9 +204,24 @@ which is a contradiction unless $d(y,y') = 0$. Therefore $y$ is the unique point
     are open sets where $B \sq U$ and $A \sq V$.
 \end{proof}
 
-\begin{prop}{}{}
+\begin{prop}{}{prodRegular}
     If $X$ and $Y$ are both regular, then $X \times Y$ is regular.
 \end{prop}
+
+\begin{proof}
+    Consider the following lemma: 
+    \begin{claim}
+        A space $X$ is regular if and only if for each $x \in X$ and open neighborhood $U$ of $x$ there exists an open neighborhood $V$ of $x$ such that $x \in V \sq \ol{V} \sq U$.
+
+        \begin{proof}
+            Assume first that $X$ is regular. Let $x \in X$ and $U$ an open neighborhood of $x$. Define $C = X \sm U$. Then $x$ is a point and $C$ is a closed subset of $X$ that is disjoint from $x$. Since $X$ is regular, there exist disjoint open sets $V$ and $W$ containing $x$ and $C$ respectively. As $V$ and $W$ are disjoint, it follows that $\ol{V} \cap C = \varnothing$. That is, $\ol{V} \sq U$.\\
+
+            Let $x \in X$ and let $E \sq X$ be a closed set with $x \not\in E$. Then, $X \sm E$ is an open neighborhood of $x$. By assumption, there exists an open neighborhood $V$ of $x$ such that $x \in V \sq \ol{V} \sq U$. Then $V$ is an open set containing $x$, $X - \ol{V}$ is an open set containing $E$, and $V \cap (X - \ol{V}) = \varnothing$.
+        \end{proof}
+    \end{claim}
+
+    Let $(x,y) \in X \times Y$ and let $U \times V$ be a basic open neighborhood of $(x,y)$. Because $X$ is regular, there exists an open set $A \sq X$ such that $x \in A \sq \ol{A} \sq U$. Similarly, there exists an open set $B \sq Y$ such that $y \in B \sq \ol{B} \sq V$. Then $A \times B$ is an open set in $X \times Y$ such that $(x,y) \in A \times B \sq \ol{A \times B} = \ol{A} \times \ol{B} \sq U \times V$. By the lemma, this proves that $X \times Y$ is regular.
+\end{proof}
 
 \begin{prop}{}{}
     Let $X$ and $Y$ be topological spaces and suppose that $U,V \sq X$ and $W \sq Y$. Then,
