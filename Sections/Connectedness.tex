@@ -4,5 +4,38 @@
 
 \section{Connectedness}
 
+\begin{prob}{(F17.3)}{F17.3}
+    Define what it means for a topological space to be connected.
+
+    \begin{enumerate}[(a)]
+        \item Show that the continuous image of a  connected space is connected.
+        \item Show that if $H \sq K \sq \ol{H}$ and $H$ is connected, then so is $K$.
+        \item Is $C([0,1])$ with the supremum metric connected?
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    See \ref{thm:ctsImage}.
+\end{proof}
+
+\begin{proof}
+    See \ref{thm:clConnected}.
+\end{proof}
+
+\begin{proof}
+    We show that $C([0,1])$ is path-connected. Since any path-connected space is connected, this will imply that $C([0,1])$ is connected.\\
+
+    Let $f \in C([0,1])$ be arbitrary. Define $\gamma: [0,1] \to C([0,1])$ by $\gamma(t) = t \cdot f(x)$. Then $\gamma(0) = 0$, $\gamma(1) = f$, and $\gamma(t) \in C([0,1])$ for each $t \in [0,1]$.
+
+        \begin{claim}
+            $\gamma$ is continuous.
+
+            \begin{proof}
+                Fix $\epsilon > 0$ and let $t \in [0,1]$ be arbitrary. Define $\delta = \epsilon/\norm[f]$. Whenever $|s - t| < \delta$,
+                    \[\norm[\gamma(s) - \gamma(t)] = \sup_{x \in [0,1]} |sf(x) - tf(x)| = |s-t|\cdot\norm[f] < \epsilon.\]
+            \end{proof}
+        \end{claim}
+    Since $\gamma$ is continuous, $\gamma$ is a path from $f$ to 0. To obtain a path between arbitrary $f,g \in C([0,1])$, concatenate the path from $f$ to 0 with the path from 0 to $g$.
+\end{proof}
 
 \end{document}
