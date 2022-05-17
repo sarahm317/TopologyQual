@@ -4,7 +4,7 @@
 
 \section{Results to Memorize}
 
-\begin{prop}{}{}
+\begin{prop}{}{productResults}
     \begin{enumerate}[(a)]
     \item The product space $X \times Y$ is compact if and only if both $X$ and $Y$ are compact.
     \item The product space $X \times Y$ is connected if and only if both $X$ and $Y$ are connected.
@@ -12,6 +12,12 @@
     \item The product space $X \times Y$ is Hausdorff if and only if both $X$ and $Y$ are Hausdorff.
     \end{enumerate}
 \end{prop}
+
+\begin{proof}
+    Suppose first that $X \times Y$ is connected. Since the projection map $p_X: X\times Y \to X$ is both surjective and continuous, and the continuous image of a connected set is connected, $X$ is connected. Likewise, $Y$ is connected.\\
+
+    Now assume that $X$ and $Y$ are both connected sets. Suppose that $A$ and $B$ are nonempty, disjoint, open subsets of $X \times Y$ such that $X \times Y = A \cup B$. Fix $y \in Y$ and notice that $X \cong X \times \{y\}$. Since $X$ is connected and homeomorphisms preserve connectedness, $X \times \{y\}$ must also be connected. Therefore, without loss of generality, $X \times \{y\} \sq A$. If this were not the case, by writing $A$ and $B$ as unions of basic open sets we would obtain a separation for $X$. Similarly, for a fixed $x \in X$, $Y \cong \{x\} \times Y$. Since $Y$ is connected and $(x,y) \in U$, it must be the case that $\{x\} \times Y \sq A$. But this would imply that $X \times Y \sq A$, contradicting the choice of $A$ and $B$.
+\end{proof}
 
 \begin{prop}{}{ctsImage}
     \begin{enumerate}[(a)]
@@ -59,11 +65,11 @@
     Let $A \sq X$ be closed. Then, $A$ is a closed subset of a compact set and therefore is compact (\ref{thm:compactClosed}). Since the continuous image of a compact set is compact (\ref{thm:ctsImage}), $f(A) \sq Y$ is compact. But, $Y$ is Hausdorff and since a compact set in a Hausdorff space is closed (\ref{thm:compactHaus}), $f(A)$ is closed.
 \end{proof}
 
-\begin{prop}{}{}
+\begin{prop}{}{seqCompactMS}
     Suppose that $(X,d)$ is a metric space. Then $X$ is compact if and only if $X$ is sequentially compact.
 \end{prop}
 
-\begin{prop}{Contraction Mapping Theorem}{}
+\begin{prop}{Contraction Mapping Theorem}{contraction}
     Let $X$ be a complete metric space and $f: X \to X$ a contraction map. Then $f$ has a unique fixed point.
 \end{prop}
 
@@ -110,7 +116,7 @@ which is a contradiction unless $d(y,y') = 0$. Therefore $y$ is the unique point
     Let $C([0,1])$ be the collection of continuous functions from [0,1] to $\R$. Then $(C([0,1]), \norm_{\sup})$ is connected and complete.
 \end{prop}
 
-\begin{prop}{}{}
+\begin{prop}{}{topSine}
     The  topologist's sine curve is connected but is not path-connected.
 \end{prop}
 
@@ -180,7 +186,7 @@ which is a contradiction unless $d(y,y') = 0$. Therefore $y$ is the unique point
     Repeat this process for each $a \in A$ to generate an open cover $\{U_a\}$ for $A$. Since $A$ is compact, there exists a finite subcover, say $\{U_{a_1},\ldots, U_{a_m}\}$. Let $U = \bigcup_{k=1}^m U_{a_k}$ and $V = \bigcap_{k=1}^m V_{a_k}$. Both $U$ and $V$ are open sets and by construction are disjoint such that $A \sq U$ and $B \sq V$.
 \end{proof}
 
-\begin{prop}{}{}
+\begin{prop}{}{metNormal}
     Every metrizable space is normal.
 \end{prop}
 

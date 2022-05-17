@@ -4,6 +4,18 @@
 
 \section{Homeomorphic Spaces}
 
+\begin{prob}{F08.7}{F08.7}
+    Let $\C$ be the set of complex numbers with the standard Euclidean topology. Define $\sim$ on $\C$ by $w \sim z$ if and only if $(z-w)$ is real. Prove that $\C/\sim$ is homeomorphic to $\R$ with the standard topology.
+\end{prob}
+
+\begin{proof}
+    Let $X = \R$ and $Y = \C/\sim$ and define $f: X \to Y$ be $f(a) = a + ai$. Define $g: Y \to X$ by $g(a + bi) = b$. To see that $g$ is well-defined, suppose that $z = (a + bi) \sim (c + di) = w$ in $\C/\sim$. Then $b - d = 0$ since $z - w \in \R$. Therefore $g(a+bi) = b = d = g(c + di)$, as desired. Also notice that $g\circ f = \ident_X$ and $f \circ g = \ident_Y$, proving that $f$ and $g$ are inverses. It remains to show that both $f$ and $g$ are continuous.\\
+
+    \textcolor{red}{What is the best way to show continuity here?}
+
+    Let $\epsilon > 0$, $x \in \R$, and consider the open ball $B_\epsilon(x) \sq \R$. 
+\end{proof}
+
 \begin{prob}{F13}{F13.7}
     Let $f: X \to Y$ be a continuous, surjective map between compact, Hausdorff spaces. Define an equivalence relation $\sim$ on $X$ so that $f$ factors as 
         \[X \xra{q} X' \xra{f'} Y\]

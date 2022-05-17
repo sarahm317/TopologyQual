@@ -3,6 +3,110 @@
 \begin{document}
 
 \section{Basic Point Set Topology}
+
+\begin{prob}{F19.6}{F19.6}
+    Let $X$ be a compact topological space. Give a proof or counterexample for the following:
+
+    \begin{enumerate}[(a)]
+        \item Let $\{F_k\}$ be a decreasing, nested sequence of non-empty closed subsets of $X$. Then, $\bigcap_{k=1}^\infty F_k \neq \varnothing$.
+        \item Let $\{O_k\}$ be a decreasing, nested sequence of non-empty open subsets of $X$. Then, $\bigcap_{k=1}^\infty O_k \neq \varnothing$.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    This is true: see \ref{prob:nestedClosed}.
+\end{proof}
+
+\begin{solution}
+    This is false: see \ref{prob:nestedOpen}.
+\end{solution}
+
+
+\begin{prob}{F06.1}{F06.1}
+    Let $X$ and $Y$ be topological spaces.
+    
+    \begin{enumerate}[(a)]
+        \item Define the product topology on $X \times Y$.
+        \item Define what it means for a space $X$ to be connected.
+        \item Show that $X$ and $Y$ are connected if and only if $X\times Y$ is connected.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    See \ref{productResults}.
+\end{proof}
+
+\begin{prob}{F16.6}{F16.6}
+    Give an example of a space that is connected but not path-connected. Prove the example works.
+\end{prob}
+
+
+\begin{solution}
+    Consider the topologist's sine curve. See \ref{thm:topSine} for the details.
+\end{solution}
+
+\begin{prob}{F16.2}{F16.2}
+    Give a proof or counterexample for the following:
+
+    \begin{enumerate}[(a)]
+        \item Every closed subset of a compact space is compact.
+        \item The product of any two connected spaces is connected.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    See \ref{thm:compactClosed}.
+\end{proof}
+
+
+\begin{proof}
+    See \ref{thm:productResults}.
+\end{proof}
+
+\begin{prob}{S17.2}{S17.2}
+    Let $X$ be a compact space, $Y$ a topological space, and $\scr{C}$ an open cover of $X \times Y$. Prove that for all $y \in Y$ there exists an open neighborhood $U$ of $y$ such that $X \times U$ is contained in the union of finitely many elements from $\scr{C}$.
+\end{prob}
+
+\begin{proof}
+    Fix $y \in Y$ and notice that $X \cong X \times \{y\}$. Therefore $X \times \{y\}$  is also compact and since $\scr{C}$ is an open cover for $X \times \{y\}$, there exists a finite subcover, say $\{W_1,\ldots, W_n\}$. Recall that every open set in $X \times Y$ can be written as a union of sets of the form $V_\alpha \times U_\alpha$ where $V_\alpha \sq X$ and $U\alpha \sq Y$ are both open. Define $U$ to be the union of the $U_\alpha$ that generate the $W_k$. Then $U$ is a union of open sets in $Y$ that are open. Since $X \times \{y\} \sq \bigcup{k=1}^n W_k$, $y \in W_k$ for some $k$. Since $U$ was created from the basic open sets for $W_k$, $y \in U$. By construction of $U$ and choice in the cover, $X \times U \sq \bigcup_{k=1}^n W_k$, as desired.
+\end{proof}
+
+
+\begin{prob}{F05.1, F14.4}{F05.1}
+    A space $X$ is step connected if given any open covering $\scr{U}$ of $X$ and any pair of points $p,q \in X$ there exists a finite sequence $U_1,\ldots,U_n$ of sets in $\scr{U}$ such that $p \in U_1$, $q \in U_n$ and $U_i \cap U_{i+1} \neq \varnothing$ for each $1 \leq i \leq n-1$. Prove that a space is step connected if and only if it is connected.
+\end{prob}
+
+\begin{proof}
+    Assume that $X$ is step connected and suppose that $U,V$ are nonempty, disjoint, open sets such that $X = U \cup V$. Let $p \in U$ and $q\in V$. Since $\scr{U} = \{U,V\}$ is a collection of open sets there exists a finite sequence of sets in $\scr{U}$ connecting $p$ to $q$. Since $U \cap V = \varnothing$, it is impossible to form the step connection, a contradiction. Therefore $X$ is connected.\\
+
+    Assume now that $X$ is connected and let $\scr{U} = \{U_\alpha\}$ be a collection of open sets. Let $p,q \in X$ be arbitary. Construct a sequence of open sets as follows: let $V_0$ be any $U_\alpha \in \scr{U}$ and let $V_1$ be the union of each $U_\alpha \in \scr{U}$ that has nonempty intersection with $V_0$. For each $n \in \N$, inductively define $V_n$ to be the union of all $U_\alpha$ in $\scr{U}$ that have nonempty intersection with $V_{n-1}$. By construction, each $V_n$ is an open set and therefore $V = \bigcup_{n=1}^\infty V_n$ is also open.\\
+    
+    Seeking a contraction, suppose that $q \not\in V$. Notice that $X - V$ is the union of the $U_\alpha$ that are disjoint from $V$ and therefore $X - V$ is open. But this implies that $V$ is both open and closed. Since $X$ is connected, either $V = X$ or $V = \varnothing$. Both of these are impossible since $q \not\in V$ and $p \in V$.
+\end{proof}
+
+\begin{prob}{S17.1}{S17.1}
+    \begin{enumerate}[(a)]
+        \item Any quotient of a Hausdorff space is Hausdorff.
+        \item Any metric space is normal.
+        \item If $X$ is a topological space and $A \sq B \sq X$ and $\ol{A}$ is the closure of $A$ in $X$, then $\ol{A} \cap B$ is the closure of $A$ with respect to the subspace topology on $B$.
+    \end{enumerate}
+\end{prob}
+
+\begin{solution}
+    This is false. Consider $X = [0,2]$ and $A = (1,2]$ where $X$ is equipped with the usual topology. Then $X$ is Hausdorff, but $X/A$ is not Hausdorff since 1 cannot be separated from $A$.
+\end{solution}
+
+\begin{proof}
+    This is true: see \ref{thm:metNormal}.
+\end{proof}
+
+\begin{proof}
+    Let $C$ denote the closure of $A$ in $B$.  Since $\ol{A}$ is closed in $X$, $\ol{A} \cap B$ is a closed set in $B$ with respect to the subspace topology. Since $A \sq B$ and $A \sq \ol{A}$, $A \sq \ol{A} \cap B$. But, $C$ is the smallest closed set in $B$ that contains $A$ and thus $C \sq \ol{A} \cap B$.\\
+
+    On the other hand, $C$ is closed in $B$. Then $C = C' \cap B$ for some set $C' \sq X$ that is closed in $X$. Since $A \sq C$ by definition of closure, $A \sq C'$. But, $\ol{A}$ is the smallest closed set containing $A$ and therefore $\ol{A} \sq C'$. Therefore, $\ol{A}\cap B \sq C' \cap B = C$.
+\end{proof}
+
+
 \begin{prob}{F13}{F13.3}
     Prove or provide a counter example to the following:
     \begin{enumerate}[(a)]
@@ -75,7 +179,7 @@ Let $X = [0,1]$ with the standard topology and $Y = [0,1]$ with the trivial topo
 Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff space. To show that $f$ is a homeomorphism, it remains to check that $f$ is an open mapping. This is equivalent to proving that $f$ maps closed sets to closed sets. Let $A \sq X$ be a closed set. Since $X$ is compact, $A$ is compact in $X$. Then, $f(A) \sq Y$ must be compact since $f$ is continuous. In a Hausdorff space, any compact set is closed and thus $f(A)$ is closed in $Y$, as desired.
 \end{proof}
 
-\begin{prob}{S12}{S12.3}
+\begin{prob}{S12.3, F11.6}{S12.3}
     Prove the following:
     \begin{enumerate}[(a)]
         \item A closed subspace of a compact space is compact.
@@ -96,7 +200,7 @@ Let $f: X \to Y$ be a continuous bijection from a compact space to a Hausdorff s
     See \ref{prob:F20.1}.
 \end{proof}
 
-\begin{prob}{S12}{S12.2}
+\begin{prob}{W08.1, S12.2}{S12.2}
     Let $X,Y,T$ be topological spaces.
 
     \begin{enumerate}[(a)]
