@@ -4,6 +4,26 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{(F18.2)}{F18.2}
+    Let $d: \Z^+ \times \Z^+ \to \R$ be the function
+        \[d(x,y) = \begin{cases} 0 & x = y\\
+            \frac{1}{x} + \frac{1}{y} & x \neq y
+        \end{cases}.\]
+    Prove that $\Z^+$ is a metric space with respect to $d$, but is not complete.
+\end{prob}
+
+\begin{proof}
+    By definition, $d(x,x) = 0$. If $d(x,y) = 0$, then either $x = y$ or $\frac{1}{x} + \frac{1}{y} = -0$. But the second is impossible since both terms in the sum are positive. Therefore $d(x,y) = 0$ implies that $x = y$. Since addition is commutative, it's clear that $d(x,y) = d(y,x)$.\\
+
+    Now let $x,y,z \in \Z^+$. If $x = y = z$, then it's clear that $d(x,z) = 0 \leq 0 + 0 = d(x,y) + d(y,z)$. Now suppose that $x = y$, but $y \neq z$. Then,
+        \[d(x,z) \leq d(x,z) + 0 = d(x,y) + d(y,z).\]
+    Finally assume that $x,y,z$ are all distinct. Then,
+        \[d(x,z) = \frac{1}{x} + \frac{1}{z} \leq \frac{1}{x} + \frac{1}{y} + \frac{1}{y} + \frac{1}{z} = d(x,y) + d(y,z).\]
+    The above properties demonstrate that $d$ is indeed a metric on $\Z^+$.\\
+
+    To see that $(\Z^+, d)$ is not complete, consider the sequence $\{1,2,3,\ldots \}$. This sequence is Cauchy since as $m,n \to \infty$, $d(m,n) = \frac{1}{m} + \frac{1}{n} \to 0$. However, every subsequence  is unbounded and therefore cannot converge.
+\end{proof}
+
 \begin{prob}{(F19.5)}{F19.5}
     Define a $K$-contraction mapping of a metric space. Show that if $K < 1$, then a $K$ contraction of a complete metric space has a unique fixed point. Must this be true when $K = 1$?\\
     
