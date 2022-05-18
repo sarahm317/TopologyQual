@@ -69,6 +69,12 @@
     Suppose that $(X,d)$ is a metric space. Then $X$ is compact if and only if $X$ is sequentially compact.
 \end{prop}
 
+\begin{proof}
+    Suppose first that $X$ is compact. Seeking a contraction, let $\{x_\}$ be a sequence in $X$ with no convergent subsequence. Then $\{x_n\}$ contains an infinite number of distinct points. Fix $x \in X$. Because no subsequence of $\{x_n\}$ converges, there exists $\epsilon_x > 0$ such that $B_{\epsilon_x}(x)$ contains finitely many terms of the sequence. Now consider the open cover of $X$ given by $\{B_{\epsilon_x}(x)\}_{x \in X}$. Since $X$ is compact, this cover must have a finite subcover. However, each element of the cover contains at most finitely many terms of the sequence and hence the finite subcover contains only finitely many terms of the sequence. But there are infinitely many distinct terms in $\{x_n\}$ meaning that this subcover does not cover $X$, a contradiction.\\
+
+    \textcolor{red}{Reverse direction still needed!}
+\end{proof}
+
 \begin{prop}{Contraction Mapping Theorem}{contraction}
     Let $X$ be a complete metric space and $f: X \to X$ a contraction map. Then $f$ has a unique fixed point.
 \end{prop}
