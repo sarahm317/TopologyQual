@@ -4,6 +4,32 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{(F17.2)}{F17.2}
+    Prove or provide a counter-example to the following:
+
+    \begin{enumerate}[(a)]
+        \item A closed and bounded subset of a topological space is compact.
+        \item The image of a closed subset under a continuous map is closed.
+        \item If $f: X \to Y$ is a continuous surjection and $Y$ is Hausdorff then so is $X$.
+        \item If $f: X \to Y$ is a continuous surjection and $X$ is Hausdorff then so is $Y$.
+        \item If a function between Hausdorff topological spaces is continuous, then the preimage of every compact set is compact.
+    \end{enumerate}
+\end{prob}
+
+\begin{solution}
+    Consider $\R$ with the topology induced by the discrete metric:
+        \[d(x,y) = \begin{cases} 0 & x = y\\ 1 & x\neq y \end{cases}.\]
+    Then $\R$ is bounded since all points are within distance 1 from the origin. That is, $\R = \ol{B_1(0)}$. However, the open cover $\{B_{1/2}(x)\}_{x \in \R}$ has no finite subcover since each ball contains exactly one point of $\R$. With respect to this metric, $\R$ is closed and bounded, but is not compact.
+\end{solution}
+
+\begin{solution}
+    This is false. Let $X = [0,1]$ with the discrete metric and $Y = [0,1]$ with the indiscrete metric. Then the identity map $f: X \to Y$ is a continuous surjection, but $f(\{1/2\}) = \{1/2\}$ is not closed in $Y$.
+\end{solution}
+
+\begin{solution}
+
+\end{solution}
+
 \begin{prob}{(S00.4), (S13.7), (F17.4), (F19.2)}{S00.4}
     Define what it means for a collection of subsets of a set $X$ to be a basis for a topology on $X$. Give a necessary condition for a collection of sets to be a basis for a topology.\\
 
