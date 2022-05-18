@@ -13,6 +13,8 @@
         \item If $f: X \to Y$ is a continuous surjection and $Y$ is Hausdorff then so is $X$.
         \item If $f: X \to Y$ is a continuous surjection and $X$ is Hausdorff then so is $Y$.
         \item If a function between Hausdorff topological spaces is continuous, then the preimage of every compact set is compact.
+        \item If $f: X \to Y$ is a continuous injection and $Y$ is Hausdorff then so is $X$.
+        \item If $Y \sq \R^2$ and $Y$ is path connected, then the closure of $Y$ is path connected.
     \end{enumerate}
 \end{prob}
 
@@ -36,6 +38,16 @@ Let $X = \{0,1\}$ with the topology $\{\varnothing, \{0\}, X\}$ and $Y = \{0\}$ 
 
 \begin{solution}
     Let $f: (0,1) \to [0,1]$ be the identity map where both spaces are equipped with the subspace topology of $\R$. Clearly $f$ is continuous. But, $[0,1]$ is compact and $f\inv([0,1]) = (0,1)$ is not compact.
+\end{solution}
+
+\begin{proof}
+    Let $f: X \to Y$ be a continuous injection and suppose that $Y$ is Hausdorff. Let $x, y \in X$ be distinct points. Since $f$ is an injection, $f(x) \neq f(y)$. Because $Y$ is Hausdorff, there exist disjoint open sets $U$ and $V$ that contain $f(x)$ and $f(y)$, respectively. Then, since $f$ is continuous, $f\inv(U)$ and $f\inv(V)$ are open neighborhoods of $x$ and $y$ respectively. If there were some $z \in f\inv(U) \cap f\inv(V)$, then $f(z) \in U \cap V$, which is impossible. Therefore, $f\inv(U)$ and $f\inv(V)$ separate $x$ and $y$, proving that $X$ is Hausdorff.
+\end{proof}
+
+\begin{solution}
+    Consider the Topologist's Sine Curve: let $S$ be the set of points
+        \[S = \{(x,\sin(1/x)): x \in (0,1]\}.\]
+    The closure of $S$ is $S \cup \{0\} \times [-1,1]$. By construction $S$ is path-connected, but $\cl{S}$ is the Topologist's Sine curve and is not path-connected. See \ref{thm:topSine} for the details.
 \end{solution}
 
 \begin{prob}{(S00.4), (S13.7), (F17.4), (F19.2)}{S00.4}
