@@ -14,6 +14,12 @@
 \end{prop}
 
 \begin{proof}
+    Assume first that $X \times Y$ is compact. Since $p_X$ and $p_Y$ are both continuous maps from $X \times Y$ onto $X$ and $Y$ respectively, it follows that $X$ and $Y$ are both compact.\\
+
+    Now assume that $X$ and $Y$ are both compact. Let $\scr{U} = \{U_\alpha\}_{\alpha \in \scr{A}}$ be an open cover of $X \times Y$. Fix $y \in Y$ and note that $X \times \{y\} \cong X$. Therefore, $X \times \{y\}$ is compact. Since $\scr{U}$ is also an open cover of $X \times \{y\}$, there exists a finite subcover, say $U_1,\ldots, U_n$. 
+\end{proof}
+
+\begin{proof}
     Suppose first that $X \times Y$ is connected. Since the projection map $p_X: X\times Y \to X$ is both surjective and continuous, and the continuous image of a connected set is connected, $X$ is connected. Likewise, $Y$ is connected.\\
 
     Now assume that $X$ and $Y$ are both connected sets. Suppose that $A$ and $B$ are nonempty, disjoint, open subsets of $X \times Y$ such that $X \times Y = A \cup B$. Fix $y \in Y$ and notice that $X \cong X \times \{y\}$. Since $X$ is connected and homeomorphisms preserve connectedness, $X \times \{y\}$ must also be connected. Therefore, without loss of generality, $X \times \{y\} \sq A$. If this were not the case, by writing $A$ and $B$ as unions of basic open sets we would obtain a separation for $X$. Similarly, for a fixed $x \in X$, $Y \cong \{x\} \times Y$. Since $Y$ is connected and $(x,y) \in U$, it must be the case that $\{x\} \times Y \sq A$. But this would imply that $X \times Y \sq A$, contradicting the choice of $A$ and $B$.
