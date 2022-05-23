@@ -4,6 +4,26 @@
 
 \section{Results to Memorize}
 
+\begin{prop}{}{ctsImage}
+    \begin{enumerate}[(a)]
+    \item The continuous image of a compact space is compact.
+    \item The continuous image of a connected space is connected.
+    \item   The continuous image of a path-connected space is path-connected.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    Let $f: X \to Y$ be continuous and suppose that $X$ is compact. Suppose that $\{U_\alpha\}$ is an open cover for $f(X)$. Since $f$ is continuous, each $f\inv(U_\alpha)$ is open in $X$. For any $x \in X$, $f(x) \in U_\alpha$ for some $U_\alpha$. Therefore, $x \in f\inv(U_\alpha)$ implying that $\{f\inv(U_alpha)\}$ is an open cover for $X$. Since $X$ is compact, extract a finite subcover, say $\{f\inv(U_1),\ldots, f\inv(U_n)\}$. Consider the corresponding collection $\{U_1,\ldots, U_n\}$ from the original cover. For each $k$, $f\left(f\inv(U_k)\right) \sq U_k$. Since $\{f\inv(U_1),\ldots, f\inv(U_n)\}$ covers $X$, $\{U_1,\ldots, U_n\}$ covers $f(X)$, as desired.
+\end{proof}
+
+\begin{proof}
+    Suppose that $f: X \to Y$ is continuous and $X$ is connected. Seeking a contradiction, let $U \cup V = f(X)$ be a separation for the image of $X$. Since $f$ is continuous, both $f\inv(U)$ and $f\inv(V)$ are open in $X$. Since $U \cup V = f(X)$, each $x \in X$ is contained in either $f\inv(U)$ or $f\inv(V)$. Therefore $X \sq f\inv(U) \cup f\inv(V)$. Trivially, $f\inv(U) \cup f\inv(V) \sq X$ and so $X = f\inv(U) \cup f\inv(V)$. Since both $f\inv(U)$ and $f\inv(V)$ are nonempty and $X$ is connected, $f\inv(U)\cap f\inv(V) \neq \varnothing$. This implies $U \cap V \neq \varnothing$.
+\end{proof}
+
+\begin{proof}
+    Suppose that $f: X \to Y$ is continuous and $X$ is path-connected. Let $f(x),f(y)$ be in the image of $f$. Since $X$ is path-connected, there exists a path $\gamma: [0,1] \to X$ from $x$ to $y$ where $\gamma(0) = x$ and $\gamma(y) = 1$. Let $\alpha = f\circ \gamma: [0,1] \to f(X)$. Then $\alpha$ is the composition of continuous functions and so also must be continuous. Also, $\alpha(0) = f(x)$ and $\alpha(1) = f(y)$ meaning that $\alpha$ is a path from $f(x)$ to $f(y)$.
+\end{proof}
+
 \begin{prop}{}{productResults}
     \begin{enumerate}[(a)]
     \item The product space $X \times Y$ is compact if and only if both $X$ and $Y$ are compact.
@@ -48,24 +68,10 @@
     Clearly $f(0) = (a,b)$ and $f(1) = (x,y)$. Since both the component functions of $f$ are continuous, $f$ is continuous and is thus a path between $(a,b)$ and $(x,y)$.
 \end{proof}
 
-\begin{prop}{}{ctsImage}
-    \begin{enumerate}[(a)]
-    \item The continuous image of a compact space is compact.
-    \item The continuous image of a connected space is connected.
-    \item   The continuous image of a path-connected space is path-connected.
-    \end{enumerate}
-\end{prop}
-
 \begin{proof}
-    Let $f: X \to Y$ be continuous and suppose that $X$ is compact. Suppose that $\{U_\alpha\}$ is an open cover for $f(X)$. Since $f$ is continuous, each $f\inv(U_\alpha)$ is open in $X$. For any $x \in X$, $f(x) \in U_\alpha$ for some $U_\alpha$. Therefore, $x \in f\inv(U_\alpha)$ implying that $\{f\inv(U_alpha)\}$ is an open cover for $X$. Since $X$ is compact, extract a finite subcover, say $\{f\inv(U_1),\ldots, f\inv(U_n)\}$. Consider the corresponding collection $\{U_1,\ldots, U_n\}$ from the original cover. For each $k$, $f\left(f\inv(U_k)\right) \sq U_k$. Since $\{f\inv(U_1),\ldots, f\inv(U_n)\}$ covers $X$, $\{U_1,\ldots, U_n\}$ covers $f(X)$, as desired.
-\end{proof}
+    Assume first that $X \times Y$ is Hausdorff. Let $a,b \in X$ be distinct points. Fix $y \in Y$. Because $X \times Y$ is Hausdorff, there exist disjoint, open sets $W_1$ and $W_2$ such that $(a,y) \in W_1$ and $(b,y) \in W_2$. By definition of the product topology, there exists a basic open set $U_1 \times V_1 \sq W_1$ that contains $(a,y)$. Similarly there exists a basic open set $U_2 \times V_2 \sq W_2$ that contains $(b,y)$. Then $U_1$ and $U_2$ are disjoint open sets in $X$ that contain $a$ and $b$, respectively. Showing that $Y$ is Hausdorff is analogous, fixing an element in $X$ instead.\\
 
-\begin{proof}
-    Suppose that $f: X \to Y$ is continuous and $X$ is connected. Seeking a contradiction, let $U \cup V = f(X)$ be a separation for the image of $X$. Since $f$ is continuous, both $f\inv(U)$ and $f\inv(V)$ are open in $X$. Since $U \cup V = f(X)$, each $x \in X$ is contained in either $f\inv(U)$ or $f\inv(V)$. Therefore $X \sq f\inv(U) \cup f\inv(V)$. Trivially, $f\inv(U) \cup f\inv(V) \sq X$ and so $X = f\inv(U) \cup f\inv(V)$. Since both $f\inv(U)$ and $f\inv(V)$ are nonempty and $X$ is connected, $f\inv(U)\cap f\inv(V) \neq \varnothing$. This implies $U \cap V \neq \varnothing$.
-\end{proof}
-
-\begin{proof}
-    Suppose that $f: X \to Y$ is continuous and $X$ is path-connected. Let $f(x),f(y)$ be in the image of $f$. Since $X$ is path-connected, there exists a path $\gamma: [0,1] \to X$ from $x$ to $y$ where $\gamma(0) = x$ and $\gamma(y) = 1$. Let $\alpha = f\circ \gamma: [0,1] \to f(X)$. Then $\alpha$ is the composition of continuous functions and so also must be continuous. Also, $\alpha(0) = f(x)$ and $\alpha(1) = f(y)$ meaning that $\alpha$ is a path from $f(x)$ to $f(y)$.
+    Assume now that both $X$ and $Y$ are Hausdorff. Let $(a,b)$ and $(x,y)$ be distinct points in $X \times Y$. Since $X$ is Hausdorff, choose disjoint open sets $U_1$ and $U_2$ in $X$ that contain $a$ and $x$, respectively. Similarly, choose disjoint open sets $V_1$ and $V_2$ that contain $b$ and $y$, respectively. Then $U_1 \times V_1$ and $U_2 \times V_2$ are open sets in $X \times Y$ that are disjoint and separate $(a,b)$ and $(x,y)$.
 \end{proof}
 
 \begin{prop}{}{compactHaus}
