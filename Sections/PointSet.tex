@@ -4,6 +4,23 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{(F12.4)}{F12.4}
+    Let $X,Y$ be non-empty topological spaces.
+    \begin{enumerate}[(a)]
+        \item Define the product topology on $X \times Y$.
+        \item Define path connected.
+        \item Show that $X$ and $Y$ are path connected if and only if $X \times Y$ is path connected.
+    \end{enumerate}
+\end{prob}
+
+See \ref{prob:S12.2} for the definition.
+
+A topological space $X$ is path connected if for any two points $x,y \in X$, there exists a continuous function $\gamma: [0,1] \to X$ where $\gamma(0) = x$ and $\gamma(1) = y$. Here, $\gamma$ is a path.
+
+\begin{proof}
+    See (\ref{thm:productResults}).
+\end{proof}
+
 \begin{prob}{(S20.4)}{S20.4}
     A topological space is \emph{separable} if it has a countable dense subset. Prove that the product of a countable collection of separable topological spaces is separable.
     \end{prob}
