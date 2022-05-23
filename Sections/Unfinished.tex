@@ -6,15 +6,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fall 2013}
 
-\begin{prob}{F13}{F13.1}
-    Show that the fundamental group of the torus $T^2 = S^1 \times S^1$ is $\Z \oplus \Z$ in two distinct ways:
-
-    \begin{enumerate}[(a)]
-        \item Describe a cell structure for $T^2$ and use related results to compute its fundamental group.
-        \item Describe the universal covering space of $T^2$ and use this description to compute the fundamental group.
-    \end{enumerate}
-\end{prob}
-
 \begin{prob}{F13}{F13.2}
     Let $S^1$ be the unit complex numbers under multiplication and $U$ an open subset of $S^1 \times S^1$ containing the diagonal
         \[\Delta = \{(x,x): x \in S^1 \times S^1 \}.\]
@@ -38,7 +29,7 @@ The interior of a connected set need not be connected. Let $X \sq \R^2$ be the c
 \end{solution}
 
 \begin{solution}
-    The clsure of a path connected set need not be path connected. Consider the Topologist's Spiral. Let $X$ denote the spiral and $Y = S^1$ so that the Topologist's Spiral can be written as $X \cup Y$. In this case, $X$ is path-connected, but the closure of $X$ in $X \cup Y$ is $X \cup Y$ which is not path-connected.
+    The closure of a path connected set need not be path connected. Consider the Topologist's Spiral. Let $X$ denote the spiral and $Y = S^1$ so that the Topologist's Spiral can be written as $X \cup Y$. In this case, $X$ is path-connected, but the closure of $X$ in $X \cup Y$ is $X \cup Y$ which is not path-connected.
 \end{solution}
 
 \begin{proof}
@@ -46,7 +37,9 @@ The interior of a connected set need not be connected. Let $X \sq \R^2$ be the c
 \end{proof}
 
 \begin{proof}
-    \textcolor{red}{Help!}
+    Let $\{X_\alpha\}$ be a collection of connected sets such that each $X_\alpha \cap X_{\alpha'} \neq \varnothing$. Let $X = \bigcup_\alpha X_\alpha$. Seeking a contradiction, suppose that $C \cup D = X$ is a separation. Because each $X_\alpha$ is connected, either $X_\alpha \sq C$ or $X_\alpha \cap C = \varnothing$. If this were not the case, then intersecting $C$ with $X_\alpha$ would result in a separation of $X_\alpha$.\\
+
+    Suppose that $X_\alpha \sq C$ and $X_\beta \cap C = \varnothing$ for some $\alpha \neq \beta$ in the indexing set. By assumption, there exists $p \in X_\alpha \cap X_\beta$ which is impossible. Therefore every $X_\alpha \sq C$ meaning that $D$ is empty. Thus $X$ is connected.
 \end{proof}
 
 \begin{prob}{F13}{F13.6}
@@ -136,6 +129,16 @@ Let $(X,d)$ be a metric space and let $f: X \to X$ be a continuous function with
 \item Show that this fails if $X$ is not compact.
 \end{enumerate}
 \end{prob}
+
+\begin{proof}
+    \textcolor{red}{In progress... Not sure what to do.}
+\end{proof}
+
+\begin{solution}
+    Let $X = \left\{ \frac{1}{n}: n \in \N \right\}$ and define $f: X \to X$ by $f: \frac{1}{n} \mapsto \frac{1}{n+1}$. $X$ is not compact since the sequence $\frac{1}{n}$ converges to 0 which is not in $X$. Clearly there are no fixed points of $f$. However,
+        \[d\left(\frac{1}{n}, \frac{1}{n+1}\right) = \frac{1}{n(n+1)} \to 0\] 
+    implying that no such $\epsilon$ exists.
+\end{solution}
 
 \begin{prob}{F20}{F20.7}
 A subset $E$ of a topological space $X$ is called a $G_\delta$ if there is a sequence $U_1, U_2, \ldots$ of open subsets of $X$ such that $E = \cap_{j}U_j$.
