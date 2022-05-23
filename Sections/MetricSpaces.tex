@@ -4,6 +4,15 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{(S20.7)}{S20.7}
+    A topological space is called \emph{totally disconnected} if every pair of points is contained in a pair of disjoint open sets whose union is the whole space. Prove that every countable metric space is totally disconnected.
+\end{prob}
+
+\begin{proof}
+    Let $X$ be a countable metric space. Choose any distinct points $x,y \in X$ and let $\delta = d(x,y)$. Since $x \neq y$, $\delta > 0$. Because the interval $(0,\delta)$ is uncountable and $X$ is countable, there exists $r \in (0,\delta)$ such that no point in $X$ is distance $r$ from $x$. That is, for each $x_k \in X$, $d(x,x_k) \neq r$. Let $U = B_r(x)$ be the open ball of radius $r$ centered at $x$. Since there are no points exactly distance $r$ from $x$, $\ol{B_r(x)} = B_r(x)$. Therefore, $V = X \sm \ol{B_r(x)}$ is an open set containing $y$. Since $U$ and $V$ are disjoint and open such that $X = U \cup V$, it follows that $X$ is totally disconnected.
+
+\end{proof}
+
 \begin{prob}{(S12.7),(S02.4), (S00.6)}{S12.7}
     Define a metric $d$ on $N = \N \cup \{0\}$ by
         \[d(x,y) = 0\]
