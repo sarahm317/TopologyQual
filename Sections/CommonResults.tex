@@ -70,9 +70,33 @@
 \end{prop}
 
 \begin{proof}
+
     Suppose first that $X$ is compact. Seeking a contraction, let $\{x_\}$ be a sequence in $X$ with no convergent subsequence. Then $\{x_n\}$ contains an infinite number of distinct points. Fix $x \in X$. Because no subsequence of $\{x_n\}$ converges, there exists $\epsilon_x > 0$ such that $B_{\epsilon_x}(x)$ contains finitely many terms of the sequence. Now consider the open cover of $X$ given by $\{B_{\epsilon_x}(x)\}_{x \in X}$. Since $X$ is compact, this cover must have a finite subcover. However, each element of the cover contains at most finitely many terms of the sequence and hence the finite subcover contains only finitely many terms of the sequence. But there are infinitely many distinct terms in $\{x_n\}$ meaning that this subcover does not cover $X$, a contradiction.\\
 
-    \textcolor{red}{Reverse direction still needed!}
+    Suppose now that $X$ is sequentially compact. Let $\scr{U}= \{U_\lambda\}_{\lambda \in \Lambda}$ be an arbitrary open cover of $X$.
+    
+    \begin{claim}
+        There exists $\epsilon > 0$ such that for any $x \in X$, there exists $\lambda \in \Lambda$ where $B_\epsilon(x) \sq U_\lambda$.
+
+        \begin{proof}
+            Suppose otherwise. For each $n \in \N$, define $x_n \in X$ to be such that $B_{1/n}(x_n) \not\sq U_\lambda$ for any $\lambda \in \Lambda$. By assumption, $X$ is sequentially compact and therefore there exists some convergent subsequence, say $\{x_{n_k}\}$ of $\{x_n\}$. Assume that $x_{n_k} \to y \in X$. Since $\scr{U}$ is an open cover of $X$, there exists $\alpha \in \Lambda$ and $\epsilon' > 0$ such that $B_{\epsilon'}(y) \sq U_\alpha$. Since $x_{n_k} \to y$, there exists sufficiently large $K$ such that $x_{n_K} \in B_{\epsilon'}(y)$. Define
+                \[r = \frac{\epsilon' - d(x_{n_K}, y)}{2}\]
+            and observe that $B_r(x_{n_K}) \sq B_{\epsilon'}(y) \sq U_\alpha$. This contradicts the way in which the sequence $\{x_n\}$ was constructed.
+        \end{proof}
+
+    \end{claim}
+
+    Let $\epsilon > 0$ be as guaranteed by the claim above. Let $\scr{B} = \{B_\epsilon(x)\}_{x \in X}$.
+
+    \begin{claim}
+        The open cover $\scr{B} = \{B_\epsilon(x)\}_{x \in X}$ has a finite subcover.
+
+        \begin{proof}
+            Suppose not. Let $z_1 \in X$ be arbitrary. Since $\scr{B}$ has no finite subcover, there exists $z_2 \in X \sm B_{\epsilon}(z_1)$. Recursively define a sequence $\{z_n\}$ by choosing $z_n \in X \sm \bigcup_{k=1}^{n-1}B_\epsilon(x_k)$. If this process were to terminate at any point, then $\scr{B}$ would have a finite subcover. By construction, the sequence $\{z_n\}$ has no convergent subsequence since for any $m,n \in \N$, $d(z_n,z_m) > \epsilon$. Since $X$ is sequentially compact, this is a contradiction.
+        \end{proof}
+    \end{claim}
+
+    Choose a finite subcover, say $B_\epsilon(x_1),\ldots, B_\epsilon(x_N)$ of $\scr{B}$. Because each $B_\epsilon(x_j) \sq U_{\alpha_j}$ for some $\alpha_j \in \Lambda$, the list $U_{\alpha_1},\ldots, U_{\alpha_N}$ is a finite subcover of $\scr{U}$. Whence, $X$ is compact.  
 \end{proof}
 
 \begin{prop}{Contraction Mapping Theorem}{contraction}
