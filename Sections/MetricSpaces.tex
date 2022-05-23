@@ -4,6 +4,34 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{(S20.5)}{S20.5}
+    Let $(X,d)$ be a metric space and fix a point $x_0 \in X$. Let $\rho$ be a new metric defined by 
+        \[\rho(x,y) = \begin{cases} 
+            0 & x = y\\
+            d(x,x_0) + d(y,x_0) & x \neq y
+        \end{cases}\]
+    Prove that $\rho$ is indeed a metric and that $(X,\rho)$ is complete.
+\end{prob}
+
+\begin{proof}
+    By construction, $d(x,y) \geq 0$ for any $x, y \in X$. For any $x \in  X$, $d(x,x) = 0$. Assume now that $d(x,y) = 0$. If $x \neq y$, then at most one of $x$ and $y$ can be $x_0$. Therefore, $\rho(x,y) = d(x,x_0) + d(y,x_0) > 0$ when $x \neq y$. This means that $d(x,y) = 0$ if and only if $x = y$. Since $d(x,y) = d(y,x)$ for any $x,y \in X$, it follows that $\rho(x,y) = \rho(y,x)$ for any $x, y \in X$.\\
+
+    Now let $x,y,z \in X$ be arbitrary. If $x = z$, then $\rho(x,z) = 0 \leq \rho(x,y) + \rho(y,z)$. If $x \neq z$,
+        \[\rho(x,z) = d(x,x_0) + d(z,x_0) \leq d(x, x_0) + d(y, x_0) + d(y,x_0) + d(z,x_0) = \rho(x,y) + \rho(y,z).\]
+\end{proof}
+
+\begin{proof}
+    Let $\{x_n\}$ be a Cauchy sequence in $(X,\rho)$ and $\epsilon > 0$. For any $m,n \in \N$,
+        \[\rho(x_n,x_m) = d(x_n,x_0) + d(x_m,x_0).\]
+    Since $\{x_n\}$ is Cauchy, for sufficiently large $m,n \in \N$,
+        \[d(x_n,x_0) + d(x_m,x_0) = \rho(x_n,x_m) < \epsilon.\]
+    Since both quantities on the left side of the equation are positive, this means that for sufficiently large $n \in \N$,
+        \[d(x_n,x_0) < \epsilon. \]
+    Then for sufficiently large $n$,
+        \[\rho(x_n,x_0) = d(x_n,x_0) + d(x_0,x_0) = d(x_n,x_0) < \epsilon,\]
+    proving that $\{x_n\}$ converges to $x_0$ in $(X,\rho)$.
+\end{proof}
+
 \begin{prob}{(S20.7)}{S20.7}
     A topological space is called \emph{totally disconnected} if every pair of points is contained in a pair of disjoint open sets whose union is the whole space. Prove that every countable metric space is totally disconnected.
 \end{prob}
