@@ -4,6 +4,48 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{(S12.7),(S02.4), (S00.6)}{S12.7}
+    Define a metric $d$ on $N = \N \cup \{0\}$ by
+        \[d(x,y) = 0\]
+    whenever $x = y$ and otherwise
+        \[d(x,y) = 5^{-k}\]
+    where $5^k$ is the largest power of 5 that divides $|x-y|$.
+
+    \begin{enumerate}[(a)]
+        \item Verify that $d$ is a metric.
+        \item Give an example of a sequence that converges to 0.
+        \item Prove or disprove: The space $(N, d)$ is compact.
+        \item Prove or disprove: The set of prime numbers greater than 103 is open in $(N,d)$.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    For any $k \in \N$, $5^{-k} > 0$ and therefore $d(x,y) \geq 0$ for any $x, y \in N$. Clearly $d(x,y) = 0$ if and only if $x = y$, by definition of $d$. Since addition is commutative in $N$, $d(x,y) = d(y,x)$ for any $x,y \in N$. Now let $x,y,z \in N$ be arbitrary. If $x = z$, then $d(x,z) = 0 \leq d(x,y) + d(y,z)$. Otherwise $d(x,z) = 5^{-k}$ where $5^k$ is the largest power of 5 that divides $|x-z|$. Notice that $|x-z| \leq |x-y| + |y - z|$. Therefore, no higher power of 5 can divide either of $|x-y|$ or $|y-z|$. From here it follows that $d(x,z) \leq d(x,y) + d(y,z)$, as desired.
+\end{proof}
+
+\begin{solution}
+    A trivial example is the constant sequence of all zeroes. Alternatively, consider the sequence $\{5^n\}$. Since $\frac{1}{5^n} \to 0$, $\{5^n\} \to 0$.
+\end{solution}
+
+\begin{solution}
+    This space is not compact. Consider the sequence $\{1, 1 + 5, 1 + 5 + 5^2, \ldots\}$.  Since $d(5,0) = \frac{1}{5}$, the geometric series $\sum_{k=0}^\infty 5^k$ converges to $\frac{1}{1 -5} \not\in N$. In a metric space, any compact space must be sequentially compact. Therefore $N$ is not compact.
+\end{solution}
+
+\begin{solution}
+    Let $A$ denote the set of all prime numbers greater than 103. Let $p \in A$ be arbitrary. For any $n \in \N$, $p + 5^n$ is the sum of two odd numbers and is therefore even. In particular, each $p + 5^n \not\in A$. For any $\epsilon > 0$, there exists sufficiently large $N$ such that $d(p + 5^N, p) = 5^{-N} < \epsilon$. But, $p + 5^N \not\in A$ and therefore no $\epsilon$ ball about $p$ is contained in $A$. That is, $A$ is not open.
+\end{solution}
+\begin{prob}{(S20.1)}{S20.1}
+    Let $X$ be a compact metric space. Prove that there exists a finite set of points $x_1, \ldots, x_n$ such that every point in $X$ is distance less than 3 from some $x_i$ and $d(x_i,x_j) \geq 1$ for any $i \neq j$.
+\end{prob}
+
+\begin{proof}
+    Assume that $X$ is compact. Because $X$ is a metric space, this implies that $X$ is sequentially compact (\ref{thm:seqCompactMS}).\\
+
+    Let $x_1 \in X$ be arbitrary and let $B_1 = B_3(x_1)$ be the open ball of radius 3 centered at $x_1$. If $X \sm B_1$ is empty, then the result holds. Otherwise, choose $x_2 \in X\sm B_1$ and define $B_2 = B_3(x_2)$. If $X \sm (B_1 \cup B_2)$ is empty, the result holds. Otherwise, choose $x_3 \in X \sm (B_1 \cup B_2)$. For each $n \in \N$, choose $x_{n+1} \in X \sm \bigcup_{k=1}^n B_n$ and define $B_{n+1} = B_3(x_{n+1})$. If at any step, no such point exists, the result holds.\\
+
+    Assume now that this process can be repeated infinitely many times and consider the constructed sequence $\{x_n\}$. By construction, $d(x_i,x_j) \geq 1$ whenever $i \neq j$ meaning that it is impossible for any subsequence to converge. This contradicts $X$ being sequentially compact and therefore after $N$ steps the process must terminate. By construction, this implies the desired result.
+\end{proof}
+
 \begin{prob}{(S20.2)}{S20.2}
     Suppose that $X$ is a metric space such that every sequence in $X$ has a Cauchy subsequence. Prove that $X$ can be covered by finitely many balls of radius 1.
 \end{prob}
