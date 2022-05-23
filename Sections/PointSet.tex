@@ -4,6 +4,33 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{(S20.4)}{S20.4}
+    A topological space is \emph{separable} if it has a countable dense subset. Prove that the product of a countable collection of separable topological spaces is separable.
+    \end{prob}
+    
+    \begin{proof}
+        Let $\{X_n\}$ be a countable collection of separable topological spaces and let $X = \prod_{n=1}^\infty X_n$. For each $n \in \N$, let $D_n$ be a countable dense subset of $X_n$ and choose any $x_n \in D_n$. Next define
+            \[U_1 = \prod_{k=1}^\infty \{x_k\}\]
+        and note that $U_1$ is countable as it is the countable product of singletons. Define
+            \[U_2 = D_1 \times \prod_{k=2}^\infty \{x_k\}\] 
+        and note that $U_2$ is countable since it is the finite product of countable sets. Continue in this manner, defining
+            \[U_n = \prod_{k=1}^{n-1} D_n \times \prod_{k=n}^\infty \{x_k\}\]
+        for every $n = 2,3,\ldots$. Each $U_n$ is the finite product of countable sets and therefore is countable. Therefore, $U = \bigcup_{n=1}^\infty U_n$ is countable since it is the countable union of countable sets.
+    
+        \begin{claim}
+            $U$ is dense in $X$.
+    
+            \begin{proof}
+                Let $V \sq X$ be an arbitrary open set. Let $\prod_{n=1}^\infty V_n$ be a basic open set contained in $V$. Then, each $V_i \sq X_i$ is open and for all but finitely many $i$, $V_i = X_i$. For $i \in \N$ where $V_i = X_i$, $x_i \in U_i \sq U$. That is, $V_i \cap U_i \neq \varnothing$.\\
+                
+                Now consider $i \in \N$ where $V_i \sq X_i$. Then $V_i$ is open in $X_i$ and since $U_i$ is dense in $X_i$, there exists $u_i \in U_i \cap V_i$.\\
+    
+                Define a point $(a_i) \in X$ by letting $a_i = x_i$ when $V_i = X_i$ and letting $a_i = u_i$ when $V_i \sq X_i$ is open. By construction, $(a_i) \in \prod_{n=1}^\infty V_n \cap U \sq V \cap U$.
+            \end{proof}
+    
+        \end{claim}
+    \end{proof}
+
 \begin{prob}{(S19.1)}{S19.1}
     Let $A$ and $B$ be disjoint compact subspaces of a Hausdorff topological space $X$. Prove that there are disjoint open sets $U$ and $V$ with $A \sq U$ and $B \sq V$.
 \end{prob}
