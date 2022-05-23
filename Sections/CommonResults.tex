@@ -40,6 +40,14 @@
     Now assume that $X$ and $Y$ are both connected sets. Suppose that $A$ and $B$ are nonempty, disjoint, open subsets of $X \times Y$ such that $X \times Y = A \cup B$. Fix $y \in Y$ and notice that $X \cong X \times \{y\}$. Since $X$ is connected and homeomorphisms preserve connectedness, $X \times \{y\}$ must also be connected. Therefore, without loss of generality, $X \times \{y\} \sq A$. If this were not the case, by writing $A$ and $B$ as unions of basic open sets we would obtain a separation for $X$. Similarly, for a fixed $x \in X$, $Y \cong \{x\} \times Y$. Since $Y$ is connected and $(x,y) \in U$, it must be the case that $\{x\} \times Y \sq A$. But this would imply that $X \times Y \sq A$, contradicting the choice of $A$ and $B$.
 \end{proof}
 
+\begin{proof}
+    Assume that $X \times Y$ is path-connected. Since the projection maps $p_X$ and $p_Y$ are continuous surjections onto $X$ and $Y$ respectively, both $X$ and $Y$ are the continuous images of path-connected sets and are therefore path-connected.\\
+
+    Now assume that both $X$ and $Y$ are path-connected. Let $(a,b)$ and $(x,y)$ be arbitrary points in $X \times Y$. Because $X$ is path-connected, there exists a path $\gamma: [0,1] \to X$ such that $\gamma(0) = a$ and $\gamma(1) = x$. Likewise, since $Y$ is path-connected, there exists a path $\alpha: [0,1] \to Y$ such that $\alpha(0) = b$ and $\alpha(1) = y$. Define $f: [0,1] \to X \times Y$ by 
+        \[f(t) = (\gamma(t), \alpha(t)).\]
+    Clearly $f(0) = (a,b)$ and $f(1) = (x,y)$. Since both the component functions of $f$ are continuous, $f$ is continuous and is thus a path between $(a,b)$ and $(x,y)$.
+\end{proof}
+
 \begin{prop}{}{ctsImage}
     \begin{enumerate}[(a)]
     \item The continuous image of a compact space is compact.
