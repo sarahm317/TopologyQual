@@ -4,6 +4,27 @@
 
 \section{Metric Spaces}
 
+\begin{prob}{(S19.3)}{S19.3}
+    Let $X$ be a metric space with metric $d$.
+
+    \begin{enumerate}[(a)]
+        \item Suppose that there exists $\epsilon > 0$ such that for every $x \in X$, the open ball $B_\epsilon(x)$ has compact closure. Prove that $X$ is complete.
+        \item Suppose that $X$ has the property that for every $x \in X$ there exists $\epsilon_x > 0$ such that $B_{\epsilon_x}(x)$ has compact closure. Give an example which shows $X$ need not be complete.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    Let $\{x_n\}$ be a Cauchy sequence in $X$. Choose $N \in \N$ such that whenever $m,n \geq N$,
+        \[d(x_m,x_n) < \epsilon. \]
+    In particular, this means that whenever $n \geq N$, $x_n \in B_\epsilon(x_N)$. Therefore, $x_N, x_{N+1},\ldots$ is a Cauchy sequence contained in the compact space $\ol{B_\epsilon(x_N)}$. In a metric space, any compact space is sequentially compact (see \ref{thm:seqCompactMS}). Therefore, $\{x_n\}_{n=N}^\infty$ has a convergent subsequence that converges to some point $z \in \ol{B_\epsilon(x_N)}$.\\
+
+    The convergent subsequence of $\{x_n\}_{n=N}^\infty$  is also a convergent subsequence of the original sequence. Since $\{x_n\}$ is Cauchy and has a subsequence converging to $z$, it follows that $x_n \to z$.
+\end{proof}
+
+\begin{solution}
+    Consider the space $X = (0,1) \sq \R$. For any $x \in X$ there exists $\delta > 0$ such that $(x-\delta, x + \delta) \sq X$. Then, $\ol{B_{\delta/2}(x)} = [x - \delta/2,x + \delta/2]$ is compact. However, $X$ is not complete since $\frac{1}{n} \to 0 \not\in X$.
+\end{solution}
+
 \begin{prob}{(S20.5)}{S20.5}
     Let $(X,d)$ be a metric space and fix a point $x_0 \in X$. Let $\rho$ be a new metric defined by 
         \[\rho(x,y) = \begin{cases} 
@@ -71,6 +92,21 @@
 \begin{solution}
     Let $A$ denote the set of all prime numbers greater than 103. Let $p \in A$ be arbitrary. For any $n \in \N$, $p + 5^n$ is the sum of two odd numbers and is therefore even. In particular, each $p + 5^n \not\in A$. For any $\epsilon > 0$, there exists sufficiently large $N$ such that $d(p + 5^N, p) = 5^{-N} < \epsilon$. But, $p + 5^N \not\in A$ and therefore no $\epsilon$ ball about $p$ is contained in $A$. That is, $A$ is not open.
 \end{solution}
+
+\begin{prob}{(S19.2)}{S19.2}
+    Let $X$ be a compact metric space with metric $d$. Prove that for every $\epsilon > 0$ there exists a finite number of points $p_1,\ldots, p_n$ such that
+
+    \begin{itemize}
+        \item $X = \bigcup_{k=1}^n B_\epsilon(p_k)$
+        \item $B_{\epsilon/4}(p_i) \cap B_{\epsilon/4}(p_j) = \varnothing$ whenever $i \neq j$.
+    \end{itemize}
+\end{prob}
+
+
+\begin{proof}
+    The proof here is nearly identical to that in (\ref{prob:S20.1}), replacing "3" with $\epsilon$ and "1" with $\epsilon/4$.
+\end{proof}
+
 \begin{prob}{(S20.1)}{S20.1}
     Let $X$ be a compact metric space. Prove that there exists a finite set of points $x_1, \ldots, x_n$ such that every point in $X$ is distance less than 3 from some $x_i$ and $d(x_i,x_j) \geq 1$ for any $i \neq j$.
 \end{prob}

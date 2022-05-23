@@ -4,6 +4,20 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{(F20.2)}{F20.2}
+Let $X$ be a topological space. Show that the intersection of any two dense open sets in $X$ is also dense. Give an example that shows this fails without the assumption that the sets are open.
+\end{prob}
+
+\begin{solution}
+    Both $\Q$ and $\R \sm \Q$ are dense in $\R$, however their intersection is nonempty and therefore not dense in $\R$.
+\end{solution}
+
+\begin{proof}
+    Let $U, V \sq X$ be two open dense subsets of $X$. Then $U \cap V$ is nonempty since the intersection of $U$ with any open set in $X$ must be nonempty. \\
+    
+    Let $W$ be an arbitrary open subset of $X$. Then, $U \cap W \neq \varnothing$ since $U$ is dense in $X$. Noting that $U \cap W$ is an open set, $V \cap (U \cap W) \neq \varnothing$ since $V$ is dense in $X$. Then, $(U \cap V) \cap W \neq \varnothing$, proving that $U \cap V$ is dense in $X$.
+\end{proof}
+
 \begin{prob}{(F12.5)}{F12.5}
     Give a careful definition of a connected topological space.
     \begin{enumerate}[(a)]
