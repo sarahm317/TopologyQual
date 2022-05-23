@@ -16,7 +16,22 @@
 \begin{proof}
     Assume first that $X \times Y$ is compact. Since $p_X$ and $p_Y$ are both continuous maps from $X \times Y$ onto $X$ and $Y$ respectively, it follows that $X$ and $Y$ are both compact.\\
 
-    Now assume that $X$ and $Y$ are both compact. Let $\scr{U} = \{U_\alpha\}_{\alpha \in \scr{A}}$ be an open cover of $X \times Y$. Fix $y \in Y$ and note that $X \times \{y\} \cong X$. Therefore, $X \times \{y\}$ is compact. Since $\scr{U}$ is also an open cover of $X \times \{y\}$, there exists a finite subcover, say $U_1,\ldots, U_n$. 
+    Now assume that $X$ and $Y$ are both compact. Fix $x_0 \in X$ and let $N \sq X \times Y$ be any open subset such that $\{x_0\} \times Y \sq N$.
+
+    \begin{claim}
+
+        Let $N$ be any open set containing $\{x_0\} \times Y$. Then there exists an open set $W \sq X$ containing $x_0$ such that $W \times Y \sq N$.
+
+        \begin{proof}
+            Let $\{U_\alpha \times V_\alpha\}$ be an open cover for $\{x_0\} \times Y$ consisting of basis elements for the product topology, each $U_\alpha \times V_\alpha \sq N$. Because $\{x_0\} \times Y \cong Y$ and $Y$ is compact, $\{x_0\} \times Y$ is also compact. Therefore, there exists a finite subcover, say $U_1 \times V_1, \ldots, U_n \times V_n$. Define $W = \bigcap_{k=1}^n U_k$, removing if necessary any $U_j$ that does not contain $x_0$. Then $W$ is open and contains $x_0$. Furthermore, $W \times Y \sq \bigcup_{k=1}^n U_k \times V_k$: if $(x,y) \in W \times Y$, then $x \in U_j$ for each $j$ and $y \in Y$ and thus is in some $V_i$. Since each $U_k\times V_k \sq N$, it follows that $W \times Y \sq \bigcup_{k=1}^n U_k \times V_k \sq N$, as desired.
+        \end{proof}
+    \end{claim}
+
+    Let $\scr{W} = \{W_\alpha\}$ be an arbitrary open cover of $X \times Y$. For a fixed $x_0$, the subspace $\{x_0\} \times Y$ is compact and thus may be covered by finitely many $W_\alpha$, say $W_1,\ldots, W_n$. Define $N = W_1 \cup \cdots \cup W_n$. Then $N$ is an open neighborhood about $\{x_0\} \times Y$ and by the claim there exists an open set $U \sq X$ such that
+        \[\{x_0\} \times Y \sq U \times Y \sq N.\]
+    Notice that this implies $U \times Y$ can be covered by finitely many $W_\alpha$. Repeat this process for each $x \in X$ to obtain an open set $U_x$ containing $x$ such that $U_x \times Y$ can be covered by finitely many $W_\alpha$.\\
+
+    The collection $\{U_x\}_{x \in X}$ then forms an open cover of $X$. Since $X$ is compact, extract a finite subcover, say $U_{x_1}, \ldots, U_{x_m}$. Each $U_{x_j} \times Y$ can be covered by finitely many $W_\alpha$, by construction. By concatenating the finitely many $W_\alpha$ needed to cover each of the finitely many $U_{x_j} \times Y$, we obtain a finite subcover of $\scr{W}$ for $X \times Y$.
 \end{proof}
 
 \begin{proof}
