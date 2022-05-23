@@ -14,38 +14,6 @@
     is an open set with $\Delta \sq V \sq U$.
 \end{prob}
 
-\begin{prob}{F13}{F13.3}
-    Prove or provide a counter example to the following:
-    \begin{enumerate}[(a)]
-        \item The interior of a connected set is connected.
-        \item The closure of a path connected set is path connected.
-        \item The quotient of a connected set is connected (under the quotient topology).
-        \item If $C$ is an infinite collection of connected sets where every pair of sets in $C$ has a non-empty intersection then its union is connected.
-    \end{enumerate}
-\end{prob}
-
-\begin{solution}
-The interior of a connected set need not be connected. Let $X \sq \R^2$ be the closed unit ball with center $(0,1)$ and $Y \sq \R^2$ the closed unit ball with center (0,-1). Then $X \cup Y$ is connected as the set is path-connected. However, the interior of $X \cup Y$ is the union of the corresponding open balls. In this case, the open balls provide a separation meaning that the interior is not connected.
-\end{solution}
-
-\begin{solution}
-    The closure of a path connected set need not be path connected. Consider the Topologist's Spiral. Let $X$ denote the spiral and $Y = S^1$ so that the Topologist's Spiral can be written as $X \cup Y$. In this case, $X$ is path-connected, but the closure of $X$ in $X \cup Y$ is $X \cup Y$ which is not path-connected.
-\end{solution}
-
-\begin{proof}
-    Let $X$ be a connected set and $\sim$ some equivalence relation on $X$. Let $Y = X/\sim$. The quotient map $q: X \to X/\sim$ is a surjective, continuous map. As the continuous image of a connected set is connected, it follows that $X/\sim$ is connected.
-\end{proof}
-
-\begin{proof}
-    Let $\{X_\alpha\}$ be a collection of connected sets such that each $X_\alpha \cap X_{\alpha'} \neq \varnothing$. Let $X = \bigcup_\alpha X_\alpha$. Seeking a contradiction, suppose that $C \cup D = X$ is a separation. Because each $X_\alpha$ is connected, either $X_\alpha \sq C$ or $X_\alpha \cap C = \varnothing$. If this were not the case, then intersecting $C$ with $X_\alpha$ would result in a separation of $X_\alpha$.\\
-
-    Suppose that $X_\alpha \sq C$ and $X_\beta \cap C = \varnothing$ for some $\alpha \neq \beta$ in the indexing set. By assumption, there exists $p \in X_\alpha \cap X_\beta$ which is impossible. Therefore every $X_\alpha \sq C$ meaning that $D$ is empty. Thus $X$ is connected.
-\end{proof}
-
-\begin{prob}{F13}{F13.6}
-    Let $\{Y_\alpha\}$ be a collection of topological spaces, $Y = \prod_{\alpha} Y_\alpha$ their product under the product topology, and $\pi_\beta: Y \to Y_\beta$ the projection map to the $\beta$th factor of the product. Prove that a function $f: X \to Y$ is continuous if and only if for all $\beta$ the composition $\pi_\beta \circ f: X \to Y_\beta$ is continuous.
-\end{prob}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fall 2012}
 
@@ -64,14 +32,6 @@ The interior of a connected set need not be connected. Let $X \sq \R^2$ be the c
             \item All the sets of the form $\prod U_i$ where $U_i \sq F_i$ and $U_i = F)i$ except for possibly finitely many $i$.
         \end{enumerate}
         \item Show that the set $\prod F_i$ equipped with the topology from (i) need not be homeomorphic to the set $\prod F_i$ equipped with the topology from (ii).
-    \end{enumerate}
-\end{prob}
-
-\begin{prob}{(F12.5)}{F12.5}
-    Give a careful definition of a connected topological space.
-    \begin{enumerate}[(a)]
-        \item Prove that the closed interval [0,1] is connected.
-        \item Show that a connected metric space with at least two points is uncountable.
     \end{enumerate}
 \end{prob}
 

@@ -4,6 +4,70 @@
 
 \section{Basic Point Set Topology}
 
+\begin{prob}{(F12.5)}{F12.5}
+    Give a careful definition of a connected topological space.
+    \begin{enumerate}[(a)]
+        \item Prove that the closed interval [0,1] is connected.
+        \item Show that a connected metric space with at least two points is uncountable.
+    \end{enumerate}
+\end{prob}
+
+\begin{proof}
+    Let $X = [0,1]$ be an interval in $\R$. Seeking a contradiction, assume that $X = A \cup B$ is a separation. Let $a \in A$ and $b \in B$ be arbitrary. Without loss of generality, assume that $0 \leq a < b \leq 1$. Since $X$ is bounded, let $S = \{x \in A: x < b \}$ and define $\alpha = \sup S$.\\
+    
+    By assumption $a \in S$ and therefore $\alpha \geq a$. Furthermore, each $x \in S$ satisfies $x < b$ meaning that $\alpha \leq b$. That is, $\alpha \in [a,b]$.\\
+
+    Suppose first that $\alpha \in A$. Because $A$ is open, there exists $r > 0$ such that $(\alpha - r, \alpha + r) \sq A$. This means that $\alpha + \frac{r}{2} \in A$. Since $b \not\in A$ and $b \geq \alpha$, it must be the case that $b > \alpha + r > \alpha + \frac{r}{2}$. Therefore, $\alpha + \frac{r}{2} \in S$, contradicting the fact that $\alpha$ is an upper bound of $S$.\\
+
+    On the other hand, $\alpha$ can be written as the limit of a sequence of points in $A$ and as $A$ is closed, $\alpha \in A$.
+\end{proof}
+
+\begin{proof}
+    Let $(X,d)$ be a connected metric space with at least two points. Let $x,y \in X$ be distinct points and let $R = d(x,y)$.
+
+    \begin{claim}
+        For each $r \in (0,R)$ there exists $z \in X$ such that $d(x,z) = r$.
+
+        \begin{proof}
+            We proceed by contradiction. Let $r \in (0,R)$ and suppose that for each $z \in X$, $d(x,z) \neq r$. Define $U = B_r(x)$ to be the open ball of radius $r$ centered at $x$. From the assumptions, it follows that $B_r(x) = \ol{B_r(x)}$ since the boundary of the ball is empty. Therefore, $V = X \sm \ol{B_r(x)}$ is open and satisfies $X = U \cup V$. Since $d(x,y) = R > r$, $y \in V$. Then $U\cup V$ form a separation of $X$, a contradiction.
+        \end{proof}
+    \end{claim}
+
+    Since $(0,R)$ is uncountable, the claim implies that $X$ is uncountable.
+\end{proof}
+
+\begin{prob}{(F13.3)}{F13.3}
+    Prove or provide a counter example to the following:
+    \begin{enumerate}[(a)]
+        \item The interior of a connected set is connected.
+        \item The closure of a path connected set is path connected.
+        \item The quotient of a connected set is connected (under the quotient topology).
+        \item If $C$ is an infinite collection of connected sets where every pair of sets in $C$ has a non-empty intersection then its union is connected.
+    \end{enumerate}
+\end{prob}
+
+\begin{solution}
+The interior of a connected set need not be connected. Let $X \sq \R^2$ be the closed unit ball with center $(0,1)$ and $Y \sq \R^2$ the closed unit ball with center (0,-1). Then $X \cup Y$ is connected as the set is path-connected. However, the interior of $X \cup Y$ is the union of the corresponding open balls. In this case, the open balls provide a separation meaning that the interior is not connected.
+\end{solution}
+
+\begin{solution}
+    The closure of a path connected set need not be path connected. Consider the Topologist's Spiral. Let $X$ denote the spiral and $Y = S^1$ so that the Topologist's Spiral can be written as $X \cup Y$. In this case, $X$ is path-connected, but the closure of $X$ in $X \cup Y$ is $X \cup Y$ which is not path-connected.
+\end{solution}
+
+\begin{proof}
+    Let $X$ be a connected set and $\sim$ some equivalence relation on $X$. Let $Y = X/\sim$. The quotient map $q: X \to X/\sim$ is a surjective, continuous map. As the continuous image of a connected set is connected, it follows that $X/\sim$ is connected.
+\end{proof}
+
+\begin{proof}
+    Let $\{X_\alpha\}$ be a collection of connected sets such that each $X_\alpha \cap X_{\alpha'} \neq \varnothing$. Let $X = \bigcup_\alpha X_\alpha$. Seeking a contradiction, suppose that $C \cup D = X$ is a separation. Because each $X_\alpha$ is connected, either $X_\alpha \sq C$ or $X_\alpha \cap C = \varnothing$. If this were not the case, then intersecting $C$ with $X_\alpha$ would result in a separation of $X_\alpha$.\\
+
+    Suppose that $X_\alpha \sq C$ and $X_\beta \cap C = \varnothing$ for some $\alpha \neq \beta$ in the indexing set. By assumption, there exists $p \in X_\alpha \cap X_\beta$ which is impossible. Therefore every $X_\alpha \sq C$ meaning that $D$ is empty. Thus $X$ is connected.
+\end{proof}
+
+\begin{prob}{F13}{F13.6}
+    Let $\{Y_\alpha\}$ be a collection of topological spaces, $Y = \prod_{\alpha} Y_\alpha$ their product under the product topology, and $\pi_\beta: Y \to Y_\beta$ the projection map to the $\beta$th factor of the product. Prove that a function $f: X \to Y$ is continuous if and only if for all $\beta$ the composition $\pi_\beta \circ f: X \to Y_\beta$ is continuous.
+\end{prob}
+
 \begin{prob}{(F12.4)}{F12.4}
     Let $X,Y$ be non-empty topological spaces.
     \begin{enumerate}[(a)]
