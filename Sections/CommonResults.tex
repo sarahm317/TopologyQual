@@ -243,6 +243,14 @@ which is a contradiction unless $d(y,y') = 0$. Therefore $y$ is the unique point
     Let $X \sq \R^n$. Then, $X$ is closed and bounded if and only if $X$ is compact.
 \end{prop}
 
+\begin{proof}
+    Since $\R^n$ is a metric space, $\R^n$ is Hausdorff. Assume first that $X$ is compact. In a Hausdorff space, any compact set is closed (\ref{thm:compactHaus}). Consider the collection $\{B_1(x)\}_{x \in X}$ of open balls of radius 1 centered at points in $X$. This is clearly an open cover of $X$ and thus has a finite subcover. Let $x_1,\ldots, x_n$ be the centers of the balls chosen for the subcover. Define $M$ to be the maximum distance $d(x_i,x_j)$ for $i,j = 1,\ldots, n$. Let $p,q \in X$ be arbitrary and $x_i, x_j$ the centers of the balls in the subcover that contain $p$ and $q$. Then,
+        \[d(p,q) \leq d(p,x_i) + d(x_i,x_j) + d(x_j,q) \leq 1 + M + 1 = M + 2 \]
+    proving that $X$ is bounded.\\
+
+    Now assume that $X$ is closed and bounded. Since $X$ is bounded, choose $a > 0$ so that $X \sq [-a,a]^n$. Label $T = [-a,a]^n$. It suffices to show that $T$ is compact since $X$ is assumed to be a closed subset of $T$. Each $[-a,a]$ is compact in $\R$. By \ref{prop:productResults}, a finite product of compact sets is compact. Thus $T$ is compact.
+\end{proof}
+
 \begin{prop}{}{compactHaussNormal}
     Every compact Hausdorff space is normal.
 \end{prop}
